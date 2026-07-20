@@ -1,0 +1,37 @@
+Arcgram
+Copyright 2026 Rae Sun
+
+This product (the Arcgram interactive node-and-edge diagram engine and its
+authoring skill) was created by Rae Sun.
+
+Project home: https://arcgram.io
+
+Licensed under the Apache License, Version 2.0 (the "License"). You may not
+use the files in this distribution except in compliance with the License.
+A copy of the License is provided in the LICENSE file alongside this NOTICE,
+and is also available at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------------------------------------------------------
+ATTRIBUTION
+------------------------------------------------------------------------------
+Diagrams and exports produced by Arcgram carry a "Made with Arcgram"
+attribution mark: a visual badge in the rendered output and a license /
+provenance declaration in the code header and emitted metadata.
+
+Per Section 4(d) of the Apache License, this NOTICE file and the attribution
+marks it refers to should be retained in redistributed and derivative works.
+
+An unbranded / no-attribution build is available only under a separate
+commercial license. See WATERMARK-AND-COMMERCIAL-TERMS.md. (This paragraph is
+informational; per the License, the contents of this NOTICE file do not
+themselves modify the License.)
+
+------------------------------------------------------------------------------
+TRADEMARK
+------------------------------------------------------------------------------
+"Arcgram" and the Arcgram logo are trademarks of Rae Sun. The Apache License does
+not grant permission to use these marks, except as required for reasonable and
+customary use in describing the origin of the work (e.g. stating that a diagram
+was "made with Arcgram").

@@ -1,0 +1,413 @@
+{
+ "_what": "The public Arcgram geometry-gate manifest -- the audit record of which gates ship and from where. Derived, never hand-edited.",
+ "arcgramVersion": "v2",
+ "engineMd5": "5bee3f2a1001",
+ "builtDate": "2026-07-20",
+ "count": 56,
+ "jobs": {
+  "antibad": 52,
+  "identity": 4
+ },
+ "craftSplit": {
+  "floor": 38,
+  "ceiling": 14,
+  "overrideToCeiling": [
+   "attach-cross",
+   "reorder-x"
+  ]
+ },
+ "gates": [
+  {
+   "row": "conservation",
+   "scanner": "conservation-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "html"
+  },
+  {
+   "row": "collision",
+   "scanner": "collision-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "conformance",
+   "scanner": "conformance-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "alignment",
+   "scanner": "alignment-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "file"
+  },
+  {
+   "row": "kink",
+   "scanner": "kink-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "file"
+  },
+  {
+   "row": "density",
+   "scanner": "density-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "file"
+  },
+  {
+   "row": "hub",
+   "scanner": "hub-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "file"
+  },
+  {
+   "row": "pill-safe(G8)",
+   "scanner": "pill-wire-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "wire↔wire(≥12)",
+   "scanner": "wire-wire-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "attach(A19)",
+   "scanner": "wire-attachment-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "pill-ovl(A11)",
+   "scanner": "pill-overlap-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "pill-orphan(A14)",
+   "scanner": "pill-orphan-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "pill-arrival(A16)",
+   "scanner": "pill-on-arrival-leg-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "pill-corner(A17)",
+   "scanner": "pill-corner-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "branch-badge",
+   "scanner": "branch-badge-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "audit"
+  },
+  {
+   "row": "v2-anatomy",
+   "scanner": "_v2-geom.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "html"
+  },
+  {
+   "row": "stroke-vis",
+   "scanner": "stroke-visibility-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "html"
+  },
+  {
+   "row": "group-box(#8)",
+   "scanner": "group-box-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "side-entry(#49)",
+   "scanner": "side-entry-straight-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "no-nan(#50)",
+   "scanner": "no-nan-coord-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "degen-path(#56)",
+   "scanner": "degenerate-path-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "top-row-align",
+   "scanner": "top-row-align-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "crossing",
+   "scanner": "crossing-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "long-leg",
+   "scanner": "long-leg-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "attach-cross",
+   "scanner": "attach-cross-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "fanin-grow",
+   "scanner": "fanin-undergrow-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "node-ovl(G0)",
+   "scanner": "node-overlap-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "handle(A1)",
+   "scanner": "handle-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "arrival(A2)",
+   "scanner": "arrival-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "target-pen(#53)",
+   "scanner": "target-penetration-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "bus-spc(A4)",
+   "scanner": "bus-spacing-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "corner(A5)",
+   "scanner": "corner-safety-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "central(A6)",
+   "scanner": "central-crosser-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "anchor-sd(A12)",
+   "scanner": "anchor-side-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "wander(A13)",
+   "scanner": "wire-wander-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "orphan-nd(A18)",
+   "scanner": "orphan-node-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "off-ctr(A20)",
+   "scanner": "off-center-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "reorder-x(A24)",
+   "scanner": "reorder-xing-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "logic-out(A21)",
+   "scanner": "logic-out-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "logic-coh(A23)",
+   "scanner": "logic-coherence-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "trunk-shr(A10)",
+   "scanner": "trunk-share-v2-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "fanout-split(A26)",
+   "scanner": "fanout-style-split-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "seat(#57)",
+   "scanner": "seat-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "spine-ctr(#15)",
+   "scanner": "spine-center-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "fanin-merge",
+   "scanner": "diamond-fanin-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "band-relief(A7)",
+   "scanner": "band-relief-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "band-cont(A8)",
+   "scanner": "band-continuity-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "CEILING",
+   "mode": "stdin"
+  },
+  {
+   "row": "bus-in-band(A9)",
+   "scanner": "bus-within-band-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "band-schema",
+   "scanner": "band-schema-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "stdin"
+  },
+  {
+   "row": "gap3-calc(B)",
+   "scanner": "gap3-calc-check.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "html"
+  },
+  {
+   "row": "label-fit",
+   "scanner": "label-fit-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "audit"
+  },
+  {
+   "row": "col-band(B1)",
+   "scanner": "column-band-scan.mjs",
+   "job": "antibad",
+   "craftLevel": "FLOOR",
+   "mode": "audit"
+  },
+  {
+   "row": "interaction",
+   "scanner": "interaction-scan.mjs",
+   "job": "identity",
+   "craftLevel": "IDENTITY",
+   "mode": "html"
+  },
+  {
+   "row": "theme",
+   "scanner": "theme-scan.mjs",
+   "job": "identity",
+   "craftLevel": "IDENTITY",
+   "mode": "html"
+  },
+  {
+   "row": "crossing-law",
+   "scanner": "crossing-law-scan.mjs",
+   "job": "identity",
+   "craftLevel": "CEILING",
+   "mode": "html"
+  },
+  {
+   "row": "formula-conf",
+   "scanner": "formula-flows/formula-conformance.mjs",
+   "job": "identity",
+   "craftLevel": "CEILING",
+   "mode": "html"
+  }
+ ]
+}

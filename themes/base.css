@@ -1,0 +1,383 @@
+/* Arcgram base styles
+ * ────────────────────
+ * Layout + structural CSS for an Arcgram diagram.
+ * All colors come from var(--*) defined per theme in <theme>.css.
+ * Load order: this file first, then the active theme(s).
+ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--canvas-bg);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ── Topbar (two-row layout: titles+controls on left, actions on right) ── */
+#topbar {
+  background: var(--title-bg);
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 14px 22px 12px;
+  /* Chrome uses monospace stack — falls back to system mono if JetBrains
+     Mono / ui-monospace isn't available. No external font dependency. */
+  font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+#topbar-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.title-main {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--title-main);
+  letter-spacing: .02em;
+  line-height: 1.25;
+}
+
+.title-sub-1 {
+  font-size: 11px;
+  color: var(--title-sub-1);
+  letter-spacing: .04em;
+  line-height: 1.3;
+}
+
+.title-sub-2-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.title-sub-2 {
+  font-size: 10px;
+  color: var(--title-sub-2);
+  letter-spacing: .04em;
+}
+
+#zoom-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zbtn {
+  background: var(--title-control-bg);
+  border: 1px solid var(--title-control-border);
+  border-radius: 5px;
+  color: var(--title-control-text);
+  font-size: 13px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: border-color .15s, color .15s;
+}
+
+.zbtn:hover {
+  border-color: var(--title-control-border-hover);
+  color: var(--title-control-text-hover);
+}
+
+#zoom-label {
+  font-size: 10px;
+  color: var(--title-zoom-label);
+  width: 36px;
+  text-align: center;
+}
+
+/* ── Top-right actions cluster (Export button placeholder for now) ── */
+#topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+}
+
+.export-btn {
+  background: var(--export-bg);
+  border: 1px solid var(--export-border);
+  color: var(--export-text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  letter-spacing: .03em;
+  box-shadow: 0 6px 2.55px rgba(0, 0, 0, 0.25);
+  transition: background .15s, border-color .15s, color .15s;
+}
+
+.export-btn:hover {
+  background: var(--export-bg-hover);
+  border-color: var(--export-border-hover);
+  color: var(--export-text-hover);
+}
+
+/* ── Theme switcher — floating in canvas top-right (matches Figma) ── */
+#theme-switcher {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  pointer-events: auto;
+}
+
+.theme-label {
+  font-size: 11px;
+  color: var(--theme-label-text);
+  letter-spacing: .06em;
+  padding-left: 2px;
+}
+
+.theme-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+  min-width: 136px;
+  padding: 5px 12px 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: var(--theme-btn-bg);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color .15s, background .15s;
+}
+
+.theme-btn .theme-indicator {
+  display: block;
+  width: 4px;
+  height: 17px;
+  border-radius: 2px;
+  background: var(--theme-indicator-inactive);
+  flex-shrink: 0;
+}
+
+.theme-btn .theme-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--theme-name-inactive);
+  letter-spacing: .02em;
+}
+
+.theme-btn.active .theme-indicator {
+  background: var(--theme-indicator-active);
+}
+
+.theme-btn.active .theme-name {
+  font-weight: 700;
+  color: var(--theme-name-active);
+}
+
+.theme-btn:hover {
+  border-color: var(--theme-btn-hover-border);
+  background: transparent;
+}
+
+.theme-btn:hover .theme-name {
+  color: var(--theme-name-hover);
+}
+
+/* ── Export modal ─────────────────────────────────────────── */
+.export-modal[hidden] { display: none; }
+
+.export-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.export-modal-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  background: var(--tip-bg);
+  border: 1px solid var(--tip-border);
+  border-radius: 8px;
+  padding: 22px 26px 20px;
+  max-width: 480px;
+  width: calc(100% - 40px);
+  font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  box-shadow: 0 20px 60px var(--tip-shadow);
+}
+
+.export-modal-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--node-main-rest);
+  margin-bottom: 12px;
+  letter-spacing: .02em;
+}
+
+.export-modal-body {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--tip-body);
+  margin-bottom: 8px;
+}
+
+.export-modal-state {
+  font-size: 11px;
+  line-height: 1.7;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--tip-border);
+  border-radius: 5px;
+}
+
+.export-modal-state-row {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.export-modal-state-label {
+  color: var(--tip-sub-1);
+  min-width: 56px;
+  letter-spacing: .04em;
+}
+
+.export-modal-state-value {
+  color: var(--node-main-rest);
+  word-break: break-word;
+}
+
+.export-modal-prompt {
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.55;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--tip-border);
+  border-radius: 5px;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  color: var(--node-main-rest);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.export-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.export-modal-copy,
+.export-modal-close {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: background .15s, border-color .15s, color .15s;
+}
+
+.export-modal-copy {
+  background: var(--export-bg);
+  border: 1px solid var(--export-border);
+  color: var(--export-text);
+}
+
+.export-modal-copy:hover {
+  background: var(--export-bg-hover);
+  border-color: var(--export-border-hover);
+  color: var(--export-text-hover);
+}
+
+.export-modal-close {
+  background: transparent;
+  border: 1px solid var(--title-control-border);
+  color: var(--title-control-text);
+}
+
+.export-modal-close:hover {
+  border-color: var(--title-control-border-hover);
+  color: var(--title-control-text-hover);
+}
+
+/* W&B-specific: Close button stays chrome (--title-control-*) which is
+   white-on-dark; on the light W&B modal bg it disappears. Force dark. */
+[data-theme="wb"] .export-modal-close {
+  color: rgba(0, 0, 0, 0.65);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="wb"] .export-modal-close:hover {
+  color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(0, 0, 0, 0.50);
+}
+
+/* ── Canvas wrap ────────────────────────────────────────── */
+#wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+canvas.dragging {
+  cursor: grabbing;
+}
+
+/* ── Tooltip ────────────────────────────────────────────── */
+#tip {
+  position: fixed;
+  display: none;
+  background: var(--tip-bg);
+  border: 1.5px solid var(--tip-border);
+  border-radius: 9px;
+  padding: 13px 16px;
+  font-size: 11px;
+  max-width: 290px;
+  line-height: 1.75;
+  pointer-events: none;
+  z-index: 999;
+  box-shadow: 0 10px 36px var(--tip-shadow);
+}
+
+#tip .tn { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+#tip .td { color: var(--tip-sub-1); font-size: 10px; margin-bottom: 10px; letter-spacing: .08em; }
+#tip .te { font-size: 10.5px; padding: 1px 0; }

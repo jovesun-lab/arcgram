@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# arcgram — public release repo .gitignore
+# This directory IS the `arcgram` repo's working tree (Option A: in-place nested
+# `git init`, per arcgram-book/publication/publication-workflow.md). History
+# starts clean at commit #1 with public content only.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── User workspace ───────────────────────────────────────────────────────────
+# output/ is the user's scratch area: flows scaffolded by `new-flow.mjs` land here
+# and are NOT part of the published release (see output/README.md — "Files you put
+# here are yours"). Keep the tracked README; ignore user-generated flows.
+output/*.html
+
+# ── macOS cruft (project is developed on a Mac — must never ship) ─────────────
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Icon?
+
+# ── Windows cruft (if a contributor is on Windows) ───────────────────────────
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Linux cruft ──────────────────────────────────────────────────────────────
+*~
+.directory
+.Trash-*
+
+# ── Editor / IDE ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# ── Node / tooling (the skills/*.mjs run with plain `node`, no install needed) ─
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.pnpm-debug.log*
+
+# ── Logs / temp ──────────────────────────────────────────────────────────────
+*.log
+*.tmp
+.cache/

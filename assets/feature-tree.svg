@@ -1,0 +1,394 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1868" height="2503" viewBox="0 0 1868 2503" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="1868" height="2503" fill="#f4ecdf"/>
+<rect width="1868" height="6" fill="#b8893c"/>
+<text x="56" y="74" fill="#3b3128" font-size="34" font-weight="700">Arcgram — System Feature Tree</text>
+<text x="56" y="112" fill="#6b5d4f" font-size="16">Each main function is a group box holding its parallel sub-functions. The root fans to the seven functions;</text>
+<text x="56" y="135" fill="#6b5d4f" font-size="16">pick the Layout System first (the star) — it shapes everything downstream.</text>
+<text x="56" y="160" fill="#6b5d4f" font-size="13" font-style="italic">Free-version sample — quality differs from the official release · the free version has limited layout functions</text>
+<text x="56" y="184" fill="#9a8c7b" font-size="13" font-family="monospace">Arcgram system feature tree · group-box layout</text>
+<g transform="translate(1632.9,38.0) scale(0.28571)" fill="none"><path d="M313.605 131.803C316.924 135.123 316.924 140.504 313.605 143.824L242.895 214.534C232.35 225.078 215.255 225.078 204.711 214.534L127.989 137.813L140.011 125.792L213.195 198.977C219.053 204.835 228.551 204.835 234.408 198.977L301.584 131.803C304.904 128.483 310.286 128.483 313.605 131.803Z" fill="#5B4D42"/>
+<path d="M77.6307 1.69041C126.955 -7.90247 174.718 24.3061 184.311 73.6303C187.632 90.7081 185.94 107.617 180.254 122.812C179.094 125.914 175.638 127.487 172.537 126.326C169.436 125.166 167.863 121.711 169.023 118.61C173.955 105.428 175.427 90.7639 172.54 75.9197C164.211 33.0962 122.744 5.13258 79.9201 13.4611C37.0964 21.7897 9.13261 63.2569 17.4612 106.08C25.79 148.904 67.2574 176.867 110.081 168.539C112.585 168.052 115.036 167.452 117.431 166.746C120.607 165.81 123.942 167.626 124.878 170.802C125.814 173.978 123.997 177.311 120.821 178.248C118.064 179.06 115.246 179.75 112.37 180.31C63.046 189.902 15.2835 157.694 5.69041 108.37C-3.90252 59.0455 28.3063 11.2833 77.6307 1.69041Z" fill="#FC2013"/>
+<circle cx="95" cy="91" r="60" fill="#5B4D42"/>
+<path d="M525.877 51.877C546.379 31.3744 579.621 31.3744 600.123 51.877C620.626 72.3795 620.626 105.621 600.123 126.123C579.621 146.626 546.379 146.626 525.877 126.123C505.374 105.621 505.374 72.3795 525.877 51.877Z" stroke="#AF8850" stroke-width="17"/>
+<circle cx="339.402" cy="131.955" r="8.49457" transform="rotate(45 339.402 131.955)" fill="#AF8850"/>
+<circle cx="355.004" cy="147.445" r="8.49457" transform="rotate(45 355.004 147.445)" fill="#AF8850"/>
+<circle cx="370.583" cy="162.96" r="8.49457" transform="rotate(45 370.583 162.96)" fill="#AF8850"/>
+<circle cx="386.16" cy="178.476" r="8.49457" transform="rotate(45 386.16 178.476)" fill="#AF8850"/>
+<circle cx="401.738" cy="193.99" r="8.49457" transform="rotate(45 401.738 193.99)" fill="#AF8850"/>
+<circle cx="417.316" cy="209.723" r="8.49457" transform="rotate(45 417.316 209.723)" fill="#AF8850"/>
+<circle cx="8.49457" cy="8.49457" r="8.49457" transform="matrix(-0.707107 0.707107 0.707107 0.707107 519.735 120.51)" fill="#AF8850"/>
+<circle cx="8.49457" cy="8.49457" r="8.49457" transform="matrix(-0.707107 0.707107 0.707107 0.707107 504.157 136.025)" fill="#AF8850"/>
+<circle cx="8.49457" cy="8.49457" r="8.49457" transform="matrix(-0.707107 0.707107 0.707107 0.707107 488.579 151.54)" fill="#AF8850"/>
+<circle cx="8.49457" cy="8.49457" r="8.49457" transform="matrix(-0.707107 0.707107 0.707107 0.707107 473.001 167.272)" fill="#AF8850"/>
+<circle cx="8.49457" cy="8.49457" r="8.49457" transform="matrix(-0.707107 0.707107 0.707107 0.707107 457.399 182.545)" fill="#AF8850"/>
+<circle cx="8.49457" cy="8.49457" r="8.49457" transform="matrix(-0.707107 0.707107 0.707107 0.707107 441.796 197.555)" fill="#AF8850"/>
+<path d="M137.063 303V334H110V291C110 272.222 125.261 257 144.086 257C159.768 257 172.976 267.563 176.95 281.946L177 281.988L176.965 282L176.95 281.946C172.536 278.226 166.927 276 160.822 276C146.596 276 137.063 288.088 137.063 303Z" fill="#5B4D42"/>
+<path d="M391.063 303V334H364V291C364 272.222 379.261 257 398.086 257C413.768 257 426.976 267.563 430.95 281.946L431 281.988L430.965 282L430.95 281.946C426.536 278.226 420.927 276 414.822 276C400.596 276 391.063 288.088 391.063 303Z" fill="#AF8850"/>
+<path d="M217.5 257C235.484 257 250.587 269.331 254.817 286H229.489C226.557 282.343 222.052 280 217 280C208.163 280 201 287.163 201 296C201 304.837 208.163 312 217 312C222.052 312 226.557 309.657 229.489 306H254.55C249.979 322.159 235.123 334 217.5 334C196.237 334 179 316.763 179 295.5C179 274.237 196.237 257 217.5 257Z" fill="#5B4D42"/>
+<path d="M331 257C342.046 257 351 265.954 351 277V310C351 321.046 342.046 330 331 330H296C284.954 330 276 321.046 276 310V277C276 265.954 284.954 257 296 257H331ZM306 277C300.477 277 296 281.477 296 287V300C296 305.523 300.477 310 306 310H321C326.523 310 331 305.523 331 300V287C331 281.477 326.523 277 321 277H306Z" fill="#AF8850"/>
+<path d="M278.693 364H325.718C339.681 364 351 352.594 351 338.523V282.477C351 268.406 339.681 257 325.718 257H300.436C289.026 257 279.382 264.616 276.236 275.078C275.043 279.049 278.55 282.477 282.738 282.477C286.922 282.477 290.123 278.734 292.826 275.574L292.835 275.563C294.734 273.343 297.506 272 300.436 272H321.673C326.989 272 331.786 276.423 331.786 282.477V334.523C331.786 340.577 326.989 345 321.673 345H278.693L278.693 364Z" fill="#AF8850"/>
+<path d="M472 334.999C485.807 334.999 497 323.806 497 309.999C497 296.192 485.807 284.999 472 284.999H456C442.193 284.999 431 296.192 431 309.999C431 323.806 442.193 334.999 456 334.999H472ZM459.5 318C454.806 318 451 314.194 451 309.5C451 304.806 454.806 301 459.5 301H468.5C473.194 301 477 304.806 477 309.5C477 314.194 473.194 318 468.5 318H459.5Z" fill="#AF8850"/>
+<path d="M481 287.39C481 280.676 475.627 275.234 469 275.234H440V257H471C487.569 257 501 270.606 501 287.39V335H481V287.39Z" fill="#AF8850"/>
+<rect x="467" y="318" width="22" height="17" fill="#AF8850"/>
+<path d="M593.5 257C612.002 257 627 271.998 627 290.5V334H605V297.013C605 289.74 600.772 282.5 593.5 282.5C586.228 282.5 582 289.74 582 297.013V334H560V297.013C560 289.74 555.772 282.5 548.5 282.5C541.228 282.5 537 289.74 537 297.013V334H515V293.5L515.123 293.401C515.041 292.445 515 291.477 515 290.5C515 271.998 529.998 257 548.5 257C557.161 257 565.054 260.287 571 265.681C576.946 260.287 584.839 257 593.5 257Z" fill="#AF8850"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M50 232C64.9881 232 77.4504 242.811 80.0156 257.061L100 334H73L68.04 314.906C62.9878 311.194 56.7504 309 50 309C43.2496 309 37.0114 311.193 31.959 314.905L27 334H0L19.9834 257.061C22.5486 242.811 35.0119 232 50 232ZM50 257C48.1711 257 46.6554 258.325 46.1956 260.096L39.5049 285.853C42.7771 284.653 46.3123 284 50 284C53.6874 284 57.2222 284.654 60.4941 285.853L53.8043 260.097C53.3445 258.326 51.8289 257 50 257Z" fill="#5B4D42"/></g>
+<path d="M 934.0 282.5 L 934.0 324.5" fill="none" stroke="#8a7a66" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 160.0 324.5 L 1708.0 324.5" fill="none" stroke="#8a7a66" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 160.0 324.5 L 160.0 354.5" fill="none" stroke="#8a7a66" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="160.0,364.5 154.0,354.5 166.0,354.5" fill="#8a7a66"/>
+<path d="M 418.0 324.5 L 418.0 354.5" fill="none" stroke="#e8331a" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="418.0,364.5 412.0,354.5 424.0,354.5" fill="#e8331a"/>
+<path d="M 676.0 324.5 L 676.0 354.5" fill="none" stroke="#8a7a66" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="676.0,364.5 670.0,354.5 682.0,354.5" fill="#8a7a66"/>
+<path d="M 934.0 324.5 L 934.0 354.5" fill="none" stroke="#8a7a66" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="934.0,364.5 928.0,354.5 940.0,354.5" fill="#8a7a66"/>
+<path d="M 1192.0 324.5 L 1192.0 354.5" fill="none" stroke="#8a7a66" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1192.0,364.5 1186.0,354.5 1198.0,354.5" fill="#8a7a66"/>
+<path d="M 1450.0 324.5 L 1450.0 354.5" fill="none" stroke="#8a7a66" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1450.0,364.5 1444.0,354.5 1456.0,354.5" fill="#8a7a66"/>
+<path d="M 1708.0 324.5 L 1708.0 354.5" fill="none" stroke="#8a7a66" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1708.0,364.5 1702.0,354.5 1714.0,354.5" fill="#8a7a66"/>
+<path d="M 160.0 445.5 L 160.0 483.5" fill="none" stroke="#a7603a" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="160.0,493.5 154.0,483.5 166.0,483.5" fill="#a7603a"/>
+<path d="M 418.0 445.5 L 418.0 483.5" fill="none" stroke="#797168" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="418.0,493.5 412.0,483.5 424.0,483.5" fill="#797168"/>
+<path d="M 676.0 445.5 L 676.0 483.5" fill="none" stroke="#c19c59" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="676.0,493.5 670.0,483.5 682.0,483.5" fill="#c19c59"/>
+<path d="M 934.0 445.5 L 934.0 483.5" fill="none" stroke="#ed902c" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="934.0,493.5 928.0,483.5 940.0,483.5" fill="#ed902c"/>
+<path d="M 1192.0 445.5 L 1192.0 483.5" fill="none" stroke="#8a7a66" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1192.0,493.5 1186.0,483.5 1198.0,483.5" fill="#8a7a66"/>
+<path d="M 1450.0 445.5 L 1450.0 483.5" fill="none" stroke="#8a7a66" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1450.0,493.5 1444.0,483.5 1456.0,483.5" fill="#8a7a66"/>
+<path d="M 1708.0 445.5 L 1708.0 483.5" fill="none" stroke="#b87911" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1708.0,493.5 1702.0,483.5 1714.0,483.5" fill="#b87911"/>
+<rect x="56.0" y="493.5" width="208.0" height="390.0" rx="14" fill="#a7603a" fill-opacity="0.09" stroke="#a7603a" stroke-width="1.7"/>
+<rect x="69.0" y="499.5" width="94.8" height="21" rx="6" fill="#e5d9c2" stroke="#a7603a" stroke-width="1"/>
+<text x="116.4" y="514.0" fill="#a7603a" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">NODE SYSTEM</text>
+<rect x="314.0" y="493.5" width="208.0" height="501.0" rx="14" fill="#797168" fill-opacity="0.09" stroke="#797168" stroke-width="1.7"/>
+<rect x="327.0" y="499.5" width="109.1" height="21" rx="6" fill="#e5d9c2" stroke="#797168" stroke-width="1"/>
+<text x="381.6" y="514.0" fill="#797168" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">LAYOUT SYSTEM</text>
+<rect x="572.0" y="493.5" width="208.0" height="427.0" rx="14" fill="#c19c59" fill-opacity="0.09" stroke="#c19c59" stroke-width="1.7"/>
+<rect x="585.0" y="499.5" width="180.7" height="21" rx="6" fill="#e5d9c2" stroke="#c19c59" stroke-width="1"/>
+<text x="675.4" y="514.0" fill="#c19c59" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">RENDERING &amp; INTERACTION</text>
+<rect x="830.0" y="493.5" width="208.0" height="515.5" rx="14" fill="#ed902c" fill-opacity="0.09" stroke="#ed902c" stroke-width="1.7"/>
+<rect x="843.0" y="499.5" width="166.4" height="21" rx="6" fill="#e5d9c2" stroke="#ed902c" stroke-width="1"/>
+<text x="926.2" y="514.0" fill="#ed902c" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">EXPORT &amp; OUTPUT MODES</text>
+<rect x="1088.0" y="493.5" width="208.0" height="515.5" rx="14" fill="#8a7a66" fill-opacity="0.09" stroke="#8a7a66" stroke-width="1.7"/>
+<rect x="1101.0" y="499.5" width="180.7" height="21" rx="6" fill="#e5d9c2" stroke="#8a7a66" stroke-width="1"/>
+<text x="1191.4" y="514.0" fill="#8a7a66" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">VERIFICATION &amp; BUG MARK</text>
+<rect x="1346.0" y="493.5" width="208.0" height="334.5" rx="14" fill="#8a7a66" fill-opacity="0.09" stroke="#8a7a66" stroke-width="1.7"/>
+<rect x="1359.0" y="499.5" width="73.3" height="21" rx="6" fill="#e5d9c2" stroke="#8a7a66" stroke-width="1"/>
+<text x="1395.6" y="514.0" fill="#8a7a66" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">DATA API</text>
+<rect x="1604.0" y="493.5" width="208.0" height="324.0" rx="14" fill="#b87911" fill-opacity="0.09" stroke="#b87911" stroke-width="1.7"/>
+<rect x="1617.0" y="499.5" width="144.9" height="21" rx="6" fill="#e5d9c2" stroke="#b87911" stroke-width="1"/>
+<text x="1689.5" y="514.0" fill="#b87911" font-size="10.5" font-weight="700" letter-spacing="0.4" text-anchor="middle">AUTHORING CONTRACT</text>
+<rect x="846.0" y="220.0" width="176" height="62.5" rx="11" fill="#e7d7c8" stroke="#3b3128" stroke-width="2.4"/>
+<text x="934.0" y="242.5" fill="#3b3128" font-size="10.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">SYSTEM FEATURE TREE</text>
+<text x="934.0" y="269.5" fill="#3b3128" font-size="17" font-weight="700" text-anchor="middle">Arcgram</text>
+<rect x="72.0" y="364.5" width="176" height="81.0" rx="11" fill="#f5d4be" stroke="#a7603a" stroke-width="2.4"/>
+<text x="160.0" y="386.5" fill="#a7603a" font-size="10" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION</text>
+<text x="160.0" y="412.0" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Node System</text>
+<rect x="330.0" y="364.5" width="176" height="81.0" rx="11" fill="#f4ecdf" stroke="#b7afa2" stroke-width="2.4"/>
+<text x="418.0" y="386.0" fill="#797168" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION — THE STAR</text>
+<text x="418.0" y="411.5" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Layout System</text>
+<rect x="588.0" y="364.5" width="176" height="81.0" rx="11" fill="#e9e2cf" stroke="#c19c59" stroke-width="2.4"/>
+<text x="676.0" y="386.5" fill="#c19c59" font-size="10" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION</text>
+<text x="676.0" y="412.0" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Rendering &amp;</text>
+<text x="676.0" y="432.5" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Interaction</text>
+<rect x="846.0" y="364.5" width="176" height="81.0" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.4"/>
+<text x="934.0" y="386.5" fill="#ed902c" font-size="10" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION</text>
+<text x="934.0" y="412.0" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Export &amp; Output</text>
+<rect x="1104.0" y="364.5" width="176" height="81.0" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.4"/>
+<text x="1192.0" y="386.5" fill="#8a7a66" font-size="10" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION</text>
+<text x="1192.0" y="412.0" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Verification &amp;</text>
+<text x="1192.0" y="432.5" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Bug Mark</text>
+<rect x="1362.0" y="364.5" width="176" height="81.0" rx="11" fill="#f1ddc3" stroke="#8a7a66" stroke-width="2.4"/>
+<text x="1450.0" y="386.5" fill="#8a7a66" font-size="10" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION</text>
+<text x="1450.0" y="412.0" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Data API</text>
+<rect x="1620.0" y="364.5" width="176" height="81.0" rx="11" fill="#eee3cb" stroke="#b87911" stroke-width="2.4"/>
+<text x="1708.0" y="386.5" fill="#b87911" font-size="10" font-weight="700" letter-spacing="0.6" text-anchor="middle">MAIN FUNCTION</text>
+<text x="1708.0" y="412.0" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Authoring</text>
+<text x="1708.0" y="432.5" fill="#3b3128" font-size="15.5" font-weight="700" text-anchor="middle">Contract</text>
+<rect x="72.0" y="529.5" width="176" height="58.0" rx="11" fill="#f5d4be" stroke="#a7603a" stroke-width="2.0"/>
+<text x="160.0" y="551.0" fill="#a7603a" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">10 BUILT-IN + CUSTOM</text>
+<text x="160.0" y="574.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Node types</text>
+<rect x="72.0" y="599.5" width="176" height="58.0" rx="11" fill="#f5d4be" stroke="#a7603a" stroke-width="2.0"/>
+<text x="160.0" y="621.0" fill="#a7603a" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">REASONING AXIS</text>
+<text x="160.0" y="644.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Role</text>
+<rect x="72.0" y="669.5" width="176" height="58.0" rx="11" fill="#f5d4be" stroke="#a7603a" stroke-width="2.0"/>
+<text x="160.0" y="691.0" fill="#a7603a" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">kind: 'diamond'</text>
+<text x="160.0" y="714.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Decision diamond</text>
+<rect x="72.0" y="739.5" width="176" height="58.0" rx="11" fill="#f5d4be" stroke="#a7603a" stroke-width="2.0"/>
+<text x="160.0" y="761.0" fill="#a7603a" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">TRACKING</text>
+<text x="160.0" y="784.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Status dot + flag</text>
+<rect x="72.0" y="809.5" width="176" height="58.0" rx="11" fill="#f5d4be" stroke="#a7603a" stroke-width="2.0"/>
+<text x="160.0" y="831.0" fill="#a7603a" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">HOVER</text>
+<text x="160.0" y="854.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Tooltip (desc)</text>
+<rect x="330.0" y="529.5" width="176" height="95.0" rx="11" fill="#f4ecdf" stroke="#b7afa2" stroke-width="2.0"/>
+<text x="418.0" y="551.0" fill="#797168" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">V — COLUMNS</text>
+<text x="418.0" y="574.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Lifecycles -</text>
+<text x="418.0" y="593.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">pipelines - system</text>
+<text x="418.0" y="611.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">maps</text>
+<rect x="330.0" y="636.5" width="176" height="76.5" rx="11" fill="#f4ecdf" stroke="#b7afa2" stroke-width="2.0"/>
+<text x="418.0" y="658.0" fill="#797168" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">H — BANDS</text>
+<text x="418.0" y="681.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Roadmaps - layered</text>
+<text x="418.0" y="700.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">arch - phases</text>
+<rect x="330.0" y="725.0" width="176" height="76.5" rx="11" fill="#f4ecdf" stroke="#b7afa2" stroke-width="2.0"/>
+<text x="418.0" y="746.5" fill="#797168" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">FREE DAG</text>
+<text x="418.0" y="770.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Dependency graph -</text>
+<text x="418.0" y="788.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">logic chain</text>
+<rect x="330.0" y="813.5" width="176" height="76.5" rx="11" fill="#f4ecdf" stroke="#b7afa2" stroke-width="2.0"/>
+<text x="418.0" y="835.0" fill="#797168" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">THINKING OVERLAY</text>
+<text x="418.0" y="858.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Decision trees -</text>
+<text x="418.0" y="877.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">gate judgments</text>
+<rect x="330.0" y="902.0" width="176" height="76.5" rx="11" fill="#f4ecdf" stroke="#b7afa2" stroke-width="2.0"/>
+<text x="418.0" y="923.5" fill="#797168" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">GROUPING CONSTRUCTS</text>
+<text x="418.0" y="947.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Columns - Bands -</text>
+<text x="418.0" y="965.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Group boxes</text>
+<rect x="588.0" y="529.5" width="176" height="58.0" rx="11" fill="#e9e2cf" stroke="#c19c59" stroke-width="2.0"/>
+<text x="676.0" y="551.0" fill="#c19c59" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">ZERO-DEPENDENCY</text>
+<text x="676.0" y="574.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Single-file HTML</text>
+<rect x="588.0" y="599.5" width="176" height="58.0" rx="11" fill="#e9e2cf" stroke="#c19c59" stroke-width="2.0"/>
+<text x="676.0" y="621.0" fill="#c19c59" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">NAVIGATION</text>
+<text x="676.0" y="644.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Pan - zoom - hover</text>
+<rect x="588.0" y="669.5" width="176" height="76.5" rx="11" fill="#e9e2cf" stroke="#c19c59" stroke-width="2.0"/>
+<text x="676.0" y="691.0" fill="#c19c59" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">CANVASES</text>
+<text x="676.0" y="714.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Spotlight filter</text>
+<text x="676.0" y="733.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">tabs</text>
+<rect x="588.0" y="758.0" width="176" height="58.0" rx="11" fill="#e9e2cf" stroke="#c19c59" stroke-width="2.0"/>
+<text x="676.0" y="779.5" fill="#c19c59" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">DRILL-DOWN</text>
+<text x="676.0" y="803.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Sub-flow overlay</text>
+<rect x="588.0" y="828.0" width="176" height="76.5" rx="11" fill="#e9e2cf" stroke="#c19c59" stroke-width="2.0"/>
+<text x="676.0" y="849.5" fill="#c19c59" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">3 THEMES</text>
+<text x="676.0" y="873.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Default - W&amp;B -</text>
+<text x="676.0" y="891.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Terracotta</text>
+<rect x="846.0" y="529.5" width="176" height="76.5" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.0"/>
+<text x="934.0" y="551.0" fill="#ed902c" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">EXPORT BUTTON</text>
+<text x="934.0" y="574.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Export as single</text>
+<text x="934.0" y="593.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">file</text>
+<rect x="846.0" y="618.0" width="176" height="58.0" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.0"/>
+<text x="934.0" y="639.5" fill="#ed902c" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">STATIC VECTOR</text>
+<text x="934.0" y="663.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">SVG export</text>
+<rect x="846.0" y="688.0" width="176" height="58.0" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.0"/>
+<text x="934.0" y="709.5" fill="#ed902c" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">GUARD</text>
+<text x="934.0" y="733.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Export-quality gate</text>
+<rect x="846.0" y="758.0" width="176" height="76.5" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.0"/>
+<text x="934.0" y="779.5" fill="#ed902c" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">MODE 1</text>
+<text x="934.0" y="803.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Inline interactive</text>
+<text x="934.0" y="821.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">widget</text>
+<rect x="846.0" y="846.5" width="176" height="58.0" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.0"/>
+<text x="934.0" y="868.0" fill="#ed902c" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">MODE 2</text>
+<text x="934.0" y="891.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Inline static SVG</text>
+<rect x="846.0" y="916.5" width="176" height="76.5" rx="11" fill="#f1e1ca" stroke="#ed902c" stroke-width="2.0"/>
+<text x="934.0" y="938.0" fill="#ed902c" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">MODE 3</text>
+<text x="934.0" y="961.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Standalone HTML</text>
+<text x="934.0" y="980.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">file</text>
+<rect x="1104.0" y="529.5" width="176" height="58.0" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1192.0" y="551.0" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">STRUCTURE</text>
+<text x="1192.0" y="574.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Checkpoint</text>
+<rect x="1104.0" y="599.5" width="176" height="58.0" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1192.0" y="621.0" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">@spec</text>
+<text x="1192.0" y="644.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Reconcile</text>
+<rect x="1104.0" y="669.5" width="176" height="58.0" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1192.0" y="691.0" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">COMBINED + SELF-CHECK</text>
+<text x="1192.0" y="714.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Validate</text>
+<rect x="1104.0" y="739.5" width="176" height="76.5" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1192.0" y="761.0" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">GEOMETRY GATES</text>
+<text x="1192.0" y="784.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Collision - align -</text>
+<text x="1192.0" y="803.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">kink</text>
+<rect x="1104.0" y="828.0" width="176" height="76.5" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1192.0" y="849.5" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">BUG MARK — CLASSIFY</text>
+<text x="1192.0" y="873.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Level - type -</text>
+<text x="1192.0" y="891.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">anchor</text>
+<rect x="1104.0" y="916.5" width="176" height="76.5" rx="11" fill="#e7d6bf" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1192.0" y="938.0" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">BUG MARK — LIFECYCLE</text>
+<text x="1192.0" y="961.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Open → FIXED /</text>
+<text x="1192.0" y="980.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">SUPERSEDED</text>
+<rect x="1362.0" y="529.5" width="176" height="57.5" rx="11" fill="#f1ddc3" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1450.0" y="550.5" fill="#8a7a66" font-size="9.0" font-weight="700" letter-spacing="0.6" text-anchor="middle">window.__arcgramInspect()</text>
+<text x="1450.0" y="574.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Four keys</text>
+<rect x="1362.0" y="599.0" width="176" height="58.0" rx="11" fill="#f1ddc3" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1450.0" y="620.5" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">GEOMETRY-STRIPPED</text>
+<text x="1450.0" y="644.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">Logic graph</text>
+<rect x="1362.0" y="669.0" width="176" height="76.5" rx="11" fill="#f1ddc3" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1450.0" y="690.5" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">OPT-IN PROFILES</text>
+<text x="1450.0" y="714.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">layout - raw -</text>
+<text x="1450.0" y="732.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">tierB</text>
+<rect x="1362.0" y="757.5" width="176" height="54.5" rx="11" fill="#f1ddc3" stroke="#8a7a66" stroke-width="2.0"/>
+<text x="1450.0" y="779.0" fill="#8a7a66" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">DEBUG</text>
+<text x="1450.0" y="799.0" fill="#3b3128" font-size="10.0" font-weight="700" text-anchor="middle">window.__arcgramInternal()</text>
+<rect x="1620.0" y="529.5" width="176" height="76.5" rx="11" fill="#eee3cb" stroke="#b87911" stroke-width="2.0"/>
+<text x="1708.0" y="551.0" fill="#b87911" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">REFERENCES</text>
+<text x="1708.0" y="574.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">SKILL - schema -</text>
+<text x="1708.0" y="593.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">layout-tips</text>
+<rect x="1620.0" y="618.0" width="176" height="76.5" rx="11" fill="#eee3cb" stroke="#b87911" stroke-width="2.0"/>
+<text x="1708.0" y="639.5" fill="#b87911" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">SCAFFOLD</text>
+<text x="1708.0" y="663.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">new-flow.mjs -</text>
+<text x="1708.0" y="681.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">themes/</text>
+<rect x="1620.0" y="706.5" width="176" height="95.0" rx="11" fill="#eee3cb" stroke="#b87911" stroke-width="2.0"/>
+<text x="1708.0" y="728.0" fill="#b87911" font-size="9.5" font-weight="700" letter-spacing="0.6" text-anchor="middle">HARD RULES</text>
+<text x="1708.0" y="751.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">DATA-only -</text>
+<text x="1708.0" y="770.0" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">schema-first -</text>
+<text x="1708.0" y="788.5" fill="#3b3128" font-size="13.5" font-weight="700" text-anchor="middle">human authority</text>
+<line x1="56" y1="1031.0" x2="1812" y2="1031.0" stroke="#9a8c7b" stroke-opacity="0.3"/>
+<text x="56" y="1063.0" fill="#3b3128" font-size="19" font-weight="700">What each node means</text>
+<text x="56" y="1085.0" fill="#6b5d4f" font-size="12.5">A static image has no hover tooltip, so every node’s description is listed here.</text>
+<text x="56.0" y="1109.0" fill="#3b3128" font-size="12.5" font-weight="700" letter-spacing="1">SYSTEM FEATURE TREE (root)</text>
+<circle cx="67.0" cy="1129.0" r="4" fill="#3b3128"/>
+<text x="82.0" y="1133.0" fill="#3b3128" font-size="13.5" font-weight="700">Arcgram</text>
+<text x="82.0" y="1152.0" fill="#6b5d4f" font-size="12.5">An interactive node-and-edge diagram engine: one standalone HTML file, no build and no runtime. The AI draws the map of a system</text>
+<text x="82.0" y="1169.0" fill="#6b5d4f" font-size="12.5">(or of its own reasoning); the human audits and adjusts. This tree lays out Arcgram's own feature set — each main function is a</text>
+<text x="82.0" y="1186.0" fill="#6b5d4f" font-size="12.5">NODE GROUP BOX holding its sub-functions.</text>
+<text x="56.0" y="1225.0" fill="#b7afa2" font-size="12.5" font-weight="700" letter-spacing="1">LAYOUT SYSTEM</text>
+<circle cx="67.0" cy="1245.0" r="4" fill="#b7afa2"/>
+<text x="82.0" y="1249.0" fill="#3b3128" font-size="13.5" font-weight="700">Layout System</text>
+<text x="82.0" y="1268.0" fill="#6b5d4f" font-size="12.5">Pick the layout first — it's hard to undo. Three base shapes x an optional thinking overlay = six combinations, each suited to a</text>
+<text x="82.0" y="1285.0" fill="#6b5d4f" font-size="12.5">family of flowcharts.</text>
+<circle cx="67.0" cy="1306.0" r="3" fill="#b7afa2"/>
+<text x="82.0" y="1310.0" fill="#3b3128" font-size="13.5" font-weight="600">Lifecycles - pipelines - system maps</text>
+<text x="82.0" y="1329.0" fill="#6b5d4f" font-size="12.5">Parallel categories read top → bottom. Group nodes with COLUMNS. Best for lifecycles, build pipelines, and system maps.</text>
+<circle cx="67.0" cy="1350.0" r="3" fill="#b7afa2"/>
+<text x="82.0" y="1354.0" fill="#3b3128" font-size="13.5" font-weight="600">Roadmaps - layered arch - phases</text>
+<text x="82.0" y="1373.0" fill="#6b5d4f" font-size="12.5">Parallel categories read left → right. Group rows with BANDS (+ HCOLUMNS for the x-lanes). Best for roadmaps, layered</text>
+<text x="82.0" y="1390.0" fill="#6b5d4f" font-size="12.5">architecture, multi-phase flows.</text>
+<circle cx="67.0" cy="1411.0" r="3" fill="#b7afa2"/>
+<text x="82.0" y="1415.0" fill="#3b3128" font-size="13.5" font-weight="600">Dependency graph - logic chain</text>
+<text x="82.0" y="1434.0" fill="#6b5d4f" font-size="12.5">No categories — one causal / branching chain. Leave COLUMNS and BANDS empty; each node's role rides on its cat. Best for</text>
+<text x="82.0" y="1451.0" fill="#6b5d4f" font-size="12.5">dependency graphs and logic chains.</text>
+<circle cx="67.0" cy="1472.0" r="3" fill="#b7afa2"/>
+<text x="82.0" y="1476.0" fill="#3b3128" font-size="13.5" font-weight="600">Decision trees - gate judgments</text>
+<text x="82.0" y="1495.0" fill="#6b5d4f" font-size="12.5">Add diamonds to ANY shape and it becomes a thinking-flow: the engine colors the Y/N branches automatically. Best for decision</text>
+<text x="82.0" y="1512.0" fill="#6b5d4f" font-size="12.5">trees and gate judgments.</text>
+<circle cx="67.0" cy="1533.0" r="3" fill="#b7afa2"/>
+<text x="82.0" y="1537.0" fill="#3b3128" font-size="13.5" font-weight="600">Columns - Bands - Group boxes</text>
+<text x="82.0" y="1556.0" fill="#6b5d4f" font-size="12.5">COLUMNS (v-lanes + tags), BANDS (h-phase stripes), the NODE GROUP BOX (group:true — this very diagram), HCOLUMNS, CANVASES</text>
+<text x="82.0" y="1573.0" fill="#6b5d4f" font-size="12.5">(spotlight filter), STATUS_LEGEND.</text>
+<text x="56.0" y="1612.0" fill="#ed902c" font-size="12.5" font-weight="700" letter-spacing="1">EXPORT &amp; OUTPUT MODES</text>
+<circle cx="67.0" cy="1632.0" r="4" fill="#ed902c"/>
+<text x="82.0" y="1636.0" fill="#3b3128" font-size="13.5" font-weight="700">Export &amp; Output</text>
+<text x="82.0" y="1655.0" fill="#6b5d4f" font-size="12.5">Get the diagram out as a shareable artifact, or render it inline. Fall back through the modes in order.</text>
+<circle cx="67.0" cy="1676.0" r="3" fill="#ed902c"/>
+<text x="82.0" y="1680.0" fill="#3b3128" font-size="13.5" font-weight="600">Export as single file</text>
+<text x="82.0" y="1699.0" fill="#6b5d4f" font-size="12.5">The Export button opens a modal that writes a self-contained HTML bundle — theme inlined, no external files needed.</text>
+<circle cx="67.0" cy="1720.0" r="3" fill="#ed902c"/>
+<text x="82.0" y="1724.0" fill="#3b3128" font-size="13.5" font-weight="600">SVG export</text>
+<text x="82.0" y="1743.0" fill="#6b5d4f" font-size="12.5">Export a static SVG for a README, doc, slide, or print — where an interactive page can't run.</text>
+<circle cx="67.0" cy="1764.0" r="3" fill="#ed902c"/>
+<text x="82.0" y="1768.0" fill="#3b3128" font-size="13.5" font-weight="600">Export-quality gate</text>
+<text x="82.0" y="1787.0" fill="#6b5d4f" font-size="12.5">Checks the export is sound before it ships.</text>
+<circle cx="67.0" cy="1808.0" r="3" fill="#ed902c"/>
+<text x="82.0" y="1812.0" fill="#3b3128" font-size="13.5" font-weight="600">Inline interactive widget</text>
+<text x="82.0" y="1831.0" fill="#6b5d4f" font-size="12.5">Render the engine inline via the host's HTML tool. Pan / zoom / hover native — best for iteration.</text>
+<circle cx="67.0" cy="1852.0" r="3" fill="#ed902c"/>
+<text x="82.0" y="1856.0" fill="#3b3128" font-size="13.5" font-weight="600">Inline static SVG</text>
+<text x="82.0" y="1875.0" fill="#6b5d4f" font-size="12.5">When Mode 1 is unavailable: write an inline SVG in the reply using arcgram conventions. Routes around the failed tool — don't</text>
+<text x="82.0" y="1892.0" fill="#6b5d4f" font-size="12.5">switch diagram tools.</text>
+<circle cx="67.0" cy="1913.0" r="3" fill="#ed902c"/>
+<text x="82.0" y="1917.0" fill="#3b3128" font-size="13.5" font-weight="600">Standalone HTML file</text>
+<text x="82.0" y="1936.0" fill="#6b5d4f" font-size="12.5">Write the engine + data to a file the user opens. Always available with filesystem access; the deliver-a-file mode.</text>
+<text x="56.0" y="1975.0" fill="#8a7a66" font-size="12.5" font-weight="700" letter-spacing="1">DATA API</text>
+<circle cx="67.0" cy="1995.0" r="4" fill="#8a7a66"/>
+<text x="82.0" y="1999.0" fill="#3b3128" font-size="13.5" font-weight="700">Data API</text>
+<text x="82.0" y="2018.0" fill="#6b5d4f" font-size="12.5">Inspect a diagram as data — without rasterising the canvas. A stable contract for agents and scripts.</text>
+<circle cx="67.0" cy="2039.0" r="3" fill="#8a7a66"/>
+<text x="82.0" y="2043.0" fill="#3b3128" font-size="13.5" font-weight="600">Four keys</text>
+<text x="82.0" y="2062.0" fill="#6b5d4f" font-size="12.5">Returns { meta, logic, checkpoint, spec }: provenance, the logic graph, the Checkpoint verdict, and the declared @spec map.</text>
+<circle cx="67.0" cy="2083.0" r="3" fill="#8a7a66"/>
+<text x="82.0" y="2087.0" fill="#3b3128" font-size="13.5" font-weight="600">Logic graph</text>
+<text x="82.0" y="2106.0" fill="#6b5d4f" font-size="12.5">The diagram as clean semantic nodes + edges, all geometry stripped. 'Results out, recipe in' — what the diagram means, not where</text>
+<text x="82.0" y="2123.0" fill="#6b5d4f" font-size="12.5">it landed. Cross-agent stable.</text>
+<circle cx="67.0" cy="2144.0" r="3" fill="#8a7a66"/>
+<text x="82.0" y="2148.0" fill="#3b3128" font-size="13.5" font-weight="600">layout - raw - tierB</text>
+<text x="82.0" y="2167.0" fill="#6b5d4f" font-size="12.5">Geometry is opt-in only, via named profiles — so a consumer reading the default never breaks on a layout retune.</text>
+<circle cx="67.0" cy="2188.0" r="3" fill="#8a7a66"/>
+<text x="82.0" y="2192.0" fill="#3b3128" font-size="13.5" font-weight="600">window.__arcgramInternal()</text>
+<text x="82.0" y="2211.0" fill="#6b5d4f" font-size="12.5">The sibling debug surface: geometry constants + internal layout stamps. Not a contract — may change between versions without</text>
+<text x="82.0" y="2228.0" fill="#6b5d4f" font-size="12.5">notice.</text>
+<text x="962.0" y="1109.0" fill="#a7603a" font-size="12.5" font-weight="700" letter-spacing="1">NODE SYSTEM</text>
+<circle cx="973.0" cy="1129.0" r="4" fill="#a7603a"/>
+<text x="988.0" y="1133.0" fill="#3b3128" font-size="13.5" font-weight="700">Node System</text>
+<text x="988.0" y="1152.0" fill="#6b5d4f" font-size="12.5">The typed boxes. Each node carries a render axis (type → color) and an optional reasoning axis (role) read by downstream agents.</text>
+<circle cx="973.0" cy="1173.0" r="3" fill="#a7603a"/>
+<text x="988.0" y="1177.0" fill="#3b3128" font-size="13.5" font-weight="600">Node types</text>
+<text x="988.0" y="1196.0" fill="#6b5d4f" font-size="12.5">session / sessionEnd / memory / doc / core / output / input / code / artifact / tool — plus a custom-type recipe. type is the</text>
+<text x="988.0" y="1213.0" fill="#6b5d4f" font-size="12.5">render axis: it resolves to fill + stroke color.</text>
+<circle cx="973.0" cy="1234.0" r="3" fill="#a7603a"/>
+<text x="988.0" y="1238.0" fill="#3b3128" font-size="13.5" font-weight="600">Role</text>
+<text x="988.0" y="1257.0" fill="#6b5d4f" font-size="12.5">goal / action / decision / state / output. A semantic label for what the node does in the flow — read by downstream agents, not</text>
+<text x="988.0" y="1274.0" fill="#6b5d4f" font-size="12.5">drawn by the engine.</text>
+<circle cx="973.0" cy="1295.0" r="3" fill="#a7603a"/>
+<text x="988.0" y="1299.0" fill="#3b3128" font-size="13.5" font-weight="600">Decision diamond</text>
+<text x="988.0" y="1318.0" fill="#6b5d4f" font-size="12.5">A yes/no fork. Y branch → green check (down the spine); N branch → red cross (peels right). Author-sized; branch colors are a</text>
+<text x="988.0" y="1335.0" fill="#6b5d4f" font-size="12.5">fixed convention.</text>
+<circle cx="973.0" cy="1356.0" r="3" fill="#a7603a"/>
+<text x="988.0" y="1360.0" fill="#3b3128" font-size="13.5" font-weight="600">Status dot + flag</text>
+<text x="988.0" y="1379.0" fill="#6b5d4f" font-size="12.5">status = a small theme-immune work-status dot (done / wip / open / frozen...). flag = a red bug marker on the top-right corner.</text>
+<text x="988.0" y="1396.0" fill="#6b5d4f" font-size="12.5">For pipelines, boards, audits.</text>
+<circle cx="973.0" cy="1417.0" r="3" fill="#a7603a"/>
+<text x="988.0" y="1421.0" fill="#3b3128" font-size="13.5" font-weight="600">Tooltip (desc)</text>
+<text x="988.0" y="1440.0" fill="#6b5d4f" font-size="12.5">Each node's desc is a 1-3 sentence 'what is this and why does it matter'. Shown on hover; \n breaks lines.</text>
+<text x="962.0" y="1479.0" fill="#c19c59" font-size="12.5" font-weight="700" letter-spacing="1">RENDERING &amp; INTERACTION</text>
+<circle cx="973.0" cy="1499.0" r="4" fill="#c19c59"/>
+<text x="988.0" y="1503.0" fill="#3b3128" font-size="13.5" font-weight="700">Rendering &amp; Interaction</text>
+<text x="988.0" y="1522.0" fill="#6b5d4f" font-size="12.5">One self-contained HTML file that renders and stays interactive in any browser — no server, no toolchain.</text>
+<circle cx="973.0" cy="1543.0" r="3" fill="#c19c59"/>
+<text x="988.0" y="1547.0" fill="#3b3128" font-size="13.5" font-weight="600">Single-file HTML</text>
+<text x="988.0" y="1566.0" fill="#6b5d4f" font-size="12.5">No build step, no npm install, no CDN, no runtime. The theme is inlined on export. Open the file in any browser.</text>
+<circle cx="973.0" cy="1587.0" r="3" fill="#c19c59"/>
+<text x="988.0" y="1591.0" fill="#3b3128" font-size="13.5" font-weight="600">Pan - zoom - hover</text>
+<text x="988.0" y="1610.0" fill="#6b5d4f" font-size="12.5">Drag to pan, scroll to zoom, hover for a node tooltip. On-screen zoom controls and 'fit' shortcut; arrow keys pan.</text>
+<circle cx="973.0" cy="1631.0" r="3" fill="#c19c59"/>
+<text x="988.0" y="1635.0" fill="#3b3128" font-size="13.5" font-weight="600">Spotlight filter tabs</text>
+<text x="988.0" y="1654.0" fill="#6b5d4f" font-size="12.5">Top-left tabs from CANVASES. Click a tab → its members stay bright while everything else dims to a spotlight. Click again to</text>
+<text x="988.0" y="1671.0" fill="#6b5d4f" font-size="12.5">clear.</text>
+<circle cx="973.0" cy="1692.0" r="3" fill="#c19c59"/>
+<text x="988.0" y="1696.0" fill="#3b3128" font-size="13.5" font-weight="600">Sub-flow overlay</text>
+<text x="988.0" y="1715.0" fill="#6b5d4f" font-size="12.5">A node can open a sub-diagram in-window — drill into a piece of the map without leaving the page.</text>
+<circle cx="973.0" cy="1736.0" r="3" fill="#c19c59"/>
+<text x="988.0" y="1740.0" fill="#3b3128" font-size="13.5" font-weight="600">Default - W&amp;B - Terracotta</text>
+<text x="988.0" y="1759.0" fill="#6b5d4f" font-size="12.5">A theme switcher. Semantic tokens (nodes, edges) adapt per theme; chrome tokens (controls) stay legible; status + crit colors</text>
+<text x="988.0" y="1776.0" fill="#6b5d4f" font-size="12.5">are theme-immune.</text>
+<text x="962.0" y="1815.0" fill="#8a7a66" font-size="12.5" font-weight="700" letter-spacing="1">VERIFICATION &amp; BUG MARK</text>
+<circle cx="973.0" cy="1835.0" r="4" fill="#8a7a66"/>
+<text x="988.0" y="1839.0" fill="#3b3128" font-size="13.5" font-weight="700">Verification &amp; Bug Mark</text>
+<text x="988.0" y="1858.0" fill="#6b5d4f" font-size="12.5">The diagram is a spec — check it, don't eyeball the render. Validators plus an on-canvas bug overlay.</text>
+<circle cx="973.0" cy="1879.0" r="3" fill="#8a7a66"/>
+<text x="988.0" y="1883.0" fill="#3b3128" font-size="13.5" font-weight="600">Checkpoint</text>
+<text x="988.0" y="1902.0" fill="#6b5d4f" font-size="12.5">Pre-draw structural check: catches dangling edges, orphan nodes, a diamond missing a branch, and duplicate ids.</text>
+<circle cx="973.0" cy="1923.0" r="3" fill="#8a7a66"/>
+<text x="988.0" y="1927.0" fill="#3b3128" font-size="13.5" font-weight="600">Reconcile</text>
+<text x="988.0" y="1946.0" fill="#6b5d4f" font-size="12.5">Code ↔ diagram bijection: reconciles each node's declared @spec line against matching code. A no-code run reports INCOMPLETE,</text>
+<text x="988.0" y="1963.0" fill="#6b5d4f" font-size="12.5">never a silent pass.</text>
+<circle cx="973.0" cy="1984.0" r="3" fill="#8a7a66"/>
+<text x="988.0" y="1988.0" fill="#3b3128" font-size="13.5" font-weight="600">Validate</text>
+<text x="988.0" y="2007.0" fill="#6b5d4f" font-size="12.5">The single entry: runs Checkpoint always, Reconcile when given code. The engine also self-checks on render and stamps the</text>
+<text x="988.0" y="2024.0" fill="#6b5d4f" font-size="12.5">finding count into the subtitle.</text>
+<circle cx="973.0" cy="2045.0" r="3" fill="#8a7a66"/>
+<text x="988.0" y="2049.0" fill="#3b3128" font-size="13.5" font-weight="600">Collision - align - kink</text>
+<text x="988.0" y="2068.0" fill="#6b5d4f" font-size="12.5">The layout gate suite: collision, alignment, kink, density, hub readability, whitespace — each proven to catch its own violation</text>
+<text x="988.0" y="2085.0" fill="#6b5d4f" font-size="12.5">class.</text>
+<circle cx="973.0" cy="2106.0" r="3" fill="#8a7a66"/>
+<text x="988.0" y="2110.0" fill="#3b3128" font-size="13.5" font-weight="600">Level - type - anchor</text>
+<text x="988.0" y="2129.0" fill="#6b5d4f" font-size="12.5">level: HIGH / MED / LOW. type: bug / logic-hole / geometry-defect. anchor: on a node, an edge, or a world-point.</text>
+<circle cx="973.0" cy="2150.0" r="3" fill="#8a7a66"/>
+<text x="988.0" y="2154.0" fill="#3b3128" font-size="13.5" font-weight="600">Open → FIXED / SUPERSEDED</text>
+<text x="988.0" y="2173.0" fill="#6b5d4f" font-size="12.5">A mark is open, then resolved as FIXED (check) or SUPERSEDED (warning, with a 'revives if' note). Draws a pulsing ring + reason</text>
+<text x="988.0" y="2190.0" fill="#6b5d4f" font-size="12.5">tag + a 'Known bugs' list; self-hides when clean.</text>
+<text x="962.0" y="2229.0" fill="#b87911" font-size="12.5" font-weight="700" letter-spacing="1">AUTHORING CONTRACT</text>
+<circle cx="973.0" cy="2249.0" r="4" fill="#b87911"/>
+<text x="988.0" y="2253.0" fill="#3b3128" font-size="13.5" font-weight="700">Authoring Contract</text>
+<text x="988.0" y="2272.0" fill="#6b5d4f" font-size="12.5">How an agent authors a flow — the references to read and the hard rules that hold on every diagram.</text>
+<circle cx="973.0" cy="2293.0" r="3" fill="#b87911"/>
+<text x="988.0" y="2297.0" fill="#3b3128" font-size="13.5" font-weight="600">SKILL - schema - layout-tips</text>
+<text x="988.0" y="2316.0" fill="#6b5d4f" font-size="12.5">SKILL.md (the workflow), schema.md (every field — the single source), layout-tips.md (positioning + routing heuristics). Author</text>
+<text x="988.0" y="2333.0" fill="#6b5d4f" font-size="12.5">from these, never from memory.</text>
+<circle cx="973.0" cy="2354.0" r="3" fill="#b87911"/>
+<text x="988.0" y="2358.0" fill="#3b3128" font-size="13.5" font-weight="600">new-flow.mjs - themes/</text>
+<text x="988.0" y="2377.0" fill="#6b5d4f" font-size="12.5">node new-flow.mjs my-flow scaffolds a blank flow into output/. themes/ (base + default css) is the forkable palette.</text>
+<circle cx="973.0" cy="2398.0" r="3" fill="#b87911"/>
+<text x="988.0" y="2402.0" fill="#3b3128" font-size="13.5" font-weight="600">DATA-only - schema-first - human authority</text>
+<text x="988.0" y="2421.0" fill="#6b5d4f" font-size="12.5">Edit only the DATA section. Author from schema. The agent proposes; the human holds final write-authority. Keep the 'Made with</text>
+<text x="988.0" y="2438.0" fill="#6b5d4f" font-size="12.5">Arcgram' attribution.</text>
+<text x="1812" y="2489" fill="#9a8c7b" font-size="12" text-anchor="end">Made with Arcgram</text>
+</svg>

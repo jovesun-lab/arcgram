@@ -1,0 +1,145 @@
+/* Arcgram default theme
+ * ─────────────────────
+ * Tokens at :root so they always cascade, regardless of data-theme value.
+ * base.css uses var(--*) references that resolve to these values.
+ * Themes (e.g., B&W) override specific tokens — chrome stays from :root.
+ * Switch at runtime: document.documentElement.dataset.theme = "bw"
+ *
+ * Add a custom node type — define a bg + border pair:
+ *   --node-commerce-bg:     #1e1830;
+ *   --node-commerce-border: #b89cff;
+ *
+ * Full docs: references/themes.md
+ */
+
+:root {
+
+  /* ── Canvas ────────────────────────────────────────────── */
+  --canvas-bg:                    #0b0d18;
+  --canvas-divider:               rgba(255, 255, 255, 0.18);
+
+  /* ── Title BG (topbar) ─────────────────────────────────── */
+  --title-bg:                     rgba(11, 13, 24, 0.7);  /* 70% opaque */
+  --title-main:                   rgba(255, 255, 255, 0.85);
+  --title-sub-1:                  rgba(255, 255, 255, 0.65);
+  --title-sub-2:                  rgba(255, 255, 255, 0.45);
+  --title-zoom-label:             rgba(255, 255, 255, 0.25);
+  --title-control-bg:             #141828;
+  --title-control-border:         #1e2240;
+  --title-control-text:           rgba(255, 255, 255, 0.45);
+  --title-control-border-hover:   #4a5a90;
+  --title-control-text-hover:     rgba(255, 255, 255, 0.85);
+
+  /* ── Export button (Phase 2-export — placeholder visual) ── */
+  --export-bg:                    #1444aa;
+  --export-border:                #3364ce;
+  --export-text:                  rgba(255, 255, 255, 0.85);
+  --export-bg-hover:              #3191ff;
+  --export-border-hover:          #53e0ff;
+  --export-text-hover:            #ffffff;
+
+  /* ── Theme switcher (Phase 2-switcher — placeholder visual) ── */
+  --theme-label-text:             rgba(77, 238, 225, 0.85);
+  --theme-btn-bg:                 rgba(255, 255, 255, 0.02);
+  --theme-btn-hover-border:       rgba(77, 238, 225, 0.47);
+  --theme-indicator-active:       #94fff6;
+  --theme-indicator-inactive:     #0f4a45;
+  --theme-name-active:            rgba(255, 255, 255, 0.85);
+  --theme-name-inactive:          rgba(38, 196, 183, 0.85);
+  --theme-name-hover:             rgba(214, 255, 252, 0.85);
+
+  /* ── Tooltip ───────────────────────────────────────────── */
+  --tip-bg:                       #0e0f20;
+  --tip-border:                   #9b8cff;
+  --tip-sub-1:                    #5571AD;
+  --tip-body:                     #5571AD;
+  --tip-entry:                    #5571AD;
+  --tip-shadow:                   rgba(0, 0, 0, 0.8);
+
+  /* ── Node palette (per type) ───────────────────────────── */
+  /* Built-in types. Each pair: <bg> = dark fill, <border> = stroke. */
+  --node-session-bg:              #162640;
+  --node-session-border:          #23dfdd;
+
+  --node-sessionEnd-bg:           #2a1010;
+  --node-sessionEnd-border:       #ff5555;
+
+  --node-memory-bg:               #1c1c32;
+  --node-memory-border:           #9b8cff;
+
+  --node-doc-bg:                  #14261c;
+  --node-doc-border:              #6cc77b;
+
+  --node-core-bg:                 #1a1f3a;
+  --node-core-border:             #6985c2;
+
+  --node-output-bg:               #2a1e15;
+  --node-output-border:           #ffaa78;
+
+  --node-input-bg:                #1f1a3a;
+  --node-input-border:            #9b8cff;
+
+  --node-code-bg:                 #281c10;
+  --node-code-border:             #ffa86c;
+
+  --node-artifact-bg:             #2a1020;
+  --node-artifact-border:         #ff6c9b;
+
+  --node-tool-bg:                 #102626;
+  --node-tool-border:             #7bccc7;
+
+  /* Add custom types below, e.g.:
+   *   --node-commerce-bg:      #1e1830;
+   *   --node-commerce-border:  #b89cff;
+   *   --node-open-bg:          #2a1810;
+   *   --node-open-border:      #ff8a72;
+   */
+
+  /* ── Node state (shared across types) ──────────────────── */
+  --node-main-rest:               #d8e4f8;
+  --node-main-hover:              #ffffff;
+  --node-border-hover:            #ffffff;
+  --node-glow-hover:              18px;
+
+  /* ── Status dot (per-node indicator) ───────────────────── */
+  /* Theme-IMMUNE on purpose: a status color is semantic, not chrome,
+   * so it must persist across B&W / W&B (these tokens are deliberately
+   * NOT in the engine's semanticTokenNames list, so the theme transform
+   * skips them). Built-in keys: inactive / in-progress / done / critical.
+   * Add a custom status by defining a new --status-<key> token and
+   * referencing it from STATUS_LEGEND in the diagram data. */
+  --status-inactive:              #6b7280;
+  --status-in-progress:           #ffb454;
+  --status-done:                  #6cc77b;
+  --status-critical:              #ff5555;
+
+  /* ── Edges (by style) ──────────────────────────────────── */
+  --edge-default:                 #6790CE;
+  --edge-dashed:                  #6985C2;
+  --edge-bold:                    #ffd966;
+  --edge-crit:                    #ff4c6e;
+
+  /* ── Tag fallback (band + column header) ───────────────── */
+  /* Used only when band/column data omits its own fill/color. */
+  --tag-default-bg:               #1e3a5f;
+  --tag-default-text:             #ffffff;
+
+}
+
+/* ──────────────────────────────────────────────────────────────
+ * W&B mode: light-canvas adjustments for the floating theme
+ * switcher. Becomes a small dark island so it's readable on the
+ * inverted canvas. THEME label = dark grey; indicator stripe
+ * inverts (active = dark, inactive = light) following the
+ * W↔B principle.
+ * ────────────────────────────────────────────────────────────── */
+[data-theme="wb"] {
+  --theme-btn-bg:                 rgba(0, 0, 0, 0.30);
+  --theme-label-text:             rgba(0, 0, 0, 0.65);
+  --theme-btn-hover-border:       rgba(0, 0, 0, 0.47);
+  --theme-indicator-active:       rgba(0, 0, 0, 0.85);
+  --theme-indicator-inactive:     rgba(255, 255, 255, 0.65);
+  --theme-name-active:            rgba(0, 0, 0, 0.85);
+  --theme-name-inactive:          rgba(0, 0, 0, 0.50);
+  --theme-name-hover:             rgba(0, 0, 0, 0.85);
+}

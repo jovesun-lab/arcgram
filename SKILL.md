@@ -38,6 +38,7 @@ Charts (use a chart tool) · sequence diagrams (use a sequence-diagram tool) · 
 | `layout-tips.md` | Positioning + edge-routing heuristics. |
 | `examples/` | Worked diagrams (system map · H bands · decision diamonds · workflow) — open one first. |
 | `skills/checkpoint/`, `reconcile/`, `validate/` | Headless validators — see step 7. |
+| `extensions/` | Optional overlays for a rendered flow — notably `arcgram-bugmarks.js`, the **Bug Mark** defect-review UI. See § Bug Mark. |
 | `themes/` | `base.css` + `default.css` — reference palette for forking. Optional at runtime: an export inlines the active theme, so the exported diagram needs no themes folder. |
 | `new-flow.mjs` | Scaffold a blank flow into `output/`: `node new-flow.mjs my-flow`. |
 | `output/` | **Default home for the flows you generate.** Yours — not part of the release, not leak-scanned, not shipped. |
@@ -62,6 +63,10 @@ Pin the layout before you draw — later edits build on it. There are two decisi
 ---
 
 ## Workflow
+
+> **Hard gate — read before you draw.** Before you place a single node, read `schema.md` (every field) and `layout-tips.md` (routing + positioning), and open one file in `examples/`. Authoring from memory of how generic diagram tools look — skipping these reads — is the single biggest cause of broken graphs: drifted field names, all-to-all edge meshes, and wires routed straight through nodes. Skipping the reads is the bug, not a shortcut.
+>
+> **Decide Bug Mark up front.** Ask the user whether they want a **Bug Mark** defect review of the finished flow (§ Bug Mark). Settle it before you draw — never auto-annotate defects with icons.
 
 ### 1. Understand the topology
 Group nodes by category, decide reading direction, mark the critical connections. Logic-check the draft (step 7, pre-draw) before you place anything.
@@ -92,7 +97,7 @@ Add only what the flow needs; every field is defined in `schema.md`, every heuri
 - **Edge styling** — solid/dashed/bold + `crit`: `§ Edge styling decision matrix`.
 - **Critical paths** — `crit:true` + `lbl:'🔑N +verb'`, 3–7 per 30 edges: `layout-tips.md §8`.
 - **Decisions** — `kind:'diamond'` + `branch:'Y'/'N'`: `§ Decision diamond`.
-- **Status dots + problem flags** — `status` (+ `STATUS_LEGEND`) and `flag`, for tracking / audit flows: `§ Status dot` · `§ Problem marker`.
+- **Status dots + author flags** — `status` (+ `STATUS_LEGEND`) and `flag` (a lightweight per-node "look here" note): `§ Status dot` · `§ Problem marker`. For a real **defect review** — bugs, logic holes, geometry defects like a wire through a node — use the **Bug Mark** extension, not `flag` icons (§ Bug Mark).
 
 ### 6. Render — three modes (fall back in order; don't skip ahead)
 - **Mode 1 — inline interactive widget.** Render `template-v2.html` via the host's HTML tool (e.g. `mcp__visualize__show_widget`). Pan/zoom/hover native — best for iteration.
@@ -117,6 +122,28 @@ Extract the inline JS and syntax-check before opening — catches typos that sil
 awk '/<script>/{flag=1;next}/<\/script>/{flag=0}flag' your.html > /tmp/x.js && node --check /tmp/x.js
 ```
 Open in browser. Confirm.
+
+---
+
+## Bug Mark — defect review (opt-in; use the extension, not `flag` icons)
+
+Bug Mark is a defect-review overlay for a *drawn* flow: a pulsing ring + a short reason tag on each marked node or edge, plus a "Known bugs" list. It **self-hides when there are no marks**, so a clean flow looks identical with or without it.
+
+**Ask first, mark only when asked.** Offer the user a Bug Mark pass and settle it up front — do not auto-annotate defects.
+
+**Use the extension — not the `flag` field.** The bug-review UI is `extensions/arcgram-bugmarks.js`. The per-node `flag` field draws a small icon but is *not* Bug Mark — it must never stand in for a defect review. Load the extension *after* the engine (inline the `<script>` for a self-contained file), then call `ArcgramBugs.set([...])`:
+
+```html
+<script src="extensions/arcgram-bugmarks.js"></script>
+<script>
+  ArcgramBugs.set([
+    { level:'high',   anchor:{ node:'NODE_ID' },       reason:'wire crosses node', desc:'route around — a wire through a node is a level-1 defect' },
+    { level:'medium', anchor:{ edge:{ f:'A', t:'B' } }, reason:'authored concern',  desc:'…' }
+  ]);
+</script>
+```
+
+`level` marks the source: **`high`** = a gate / geometry defect (e.g. a wire through a node), **`medium`** = an authored concern, **`low`** = an agent advisory. Anchor each mark to a `node:'ID'` or an `edge:{ f, t }`. Full API + fields: `extensions/README.md`.
 
 ---
 

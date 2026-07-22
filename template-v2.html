@@ -4535,7 +4535,7 @@ function buildExportSVG() {
   const H=(y1-y0)+topPad+pad, ox=pad-x0, oy=topPad-y0;
   const bg = (getComputedStyle(document.documentElement).getPropertyValue('--canvas-bg')||'#0b0d18').trim();
   const esc = t => String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  let o = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+f(W)+' '+f(H)+'" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif">';
+  let o = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 '+f(W)+' '+f(H)+'" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif">';
   o += '<rect x="0" y="0" width="'+f(W)+'" height="'+f(H)+'" fill="'+bg+'"/>';
   o += '<g transform="translate('+f(ox)+' '+f(oy)+')">';
   for (const op of ops){
@@ -4559,8 +4559,11 @@ function buildExportSVG() {
     ? ARCGRAM_LOGO_INNER.replace(/fill="#[0-9A-Fa-f]{3,6}"/g,'fill="#ffffff"').replace(/stroke="#[0-9A-Fa-f]{3,6}"/g,'stroke="#ffffff"')
     : ARCGRAM_LOGO_INNER;
   const tmFill = _darkCanvas ? '#ffffff' : '#5B4D42';
+
+  o += '<a href="https://arcgram.io" target="_blank" rel="noopener" xlink:href="https://arcgram.io"><title>Made with Arcgram™ — arcgram.io</title>';
   o += '<g fill="none" transform="translate('+f(lx)+' '+f(ly)+') scale('+f(ls)+')">'+logoInner+'</g>';
   o += '<text x="'+f(lx+lw+2)+'" y="'+f(ly+268*ls)+'" fill="'+tmFill+'" font-size="'+f(Math.max(8,lh*0.10))+'" font-weight="600">™</text>';
+  o += '</a>';
   o += '</svg>';
   return o;
 }

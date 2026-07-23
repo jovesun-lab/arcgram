@@ -65,7 +65,7 @@ export function captureManifest(flow, prior) {
   return {
     _what: 'THE INTENT SET -- every node, wire and pill this flow MUST contain. conservation-scan.mjs asserts INTENT is a subset of the LIVE runtime graph, so content cannot be deleted to make a geometry gate go green.',
     _rule: 'TO SHRINK THIS SET, DECLARE THE REMOVAL IN `removed[]` WITH A REASON. --capture REFUSES to silently drop an item that was here before -- re-capturing to clear a red is exactly the failure this gate exists to prevent, and it is the failure a re-capture would look most like.',
-    _limit: 'Records what was CAPTURED, not what the source document says: conservation cannot prove the capture was complete. And a HAND-EDIT of this file is invisible to the gate -- that hole closes with version control, and arcgram-v2/ is not in git.',
+    _limit: 'Records what was CAPTURED, not what the source document says: conservation cannot prove the capture was complete. And a HAND-EDIT of this file is invisible to the gate -- that hole closes with version control.',
     flow: path.basename(flow),
     capturedAt: new Date().toISOString().slice(0, 10),
     removed: (prior && prior.removed) || [],

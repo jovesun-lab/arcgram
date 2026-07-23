@@ -5,7 +5,7 @@
 // Each value below is declared @spec on the diagram's CONFIG / FEATURE nodes; run
 // Reconcile to keep this file and the diagram in lockstep:
 //
-//     cd arcgram-v2/public/skills/reconcile
+//     cd skills/reconcile
 //     node reconcile.mjs ../../examples/example-workflow.html example-workflow.config.cs
 //
 // In Unity these would be the default values of a ScriptableObject the designer tunes;

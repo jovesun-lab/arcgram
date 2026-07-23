@@ -1,8 +1,8 @@
 {
  "_what": "The public Arcgram geometry-gate manifest -- the audit record of which gates ship and from where. Derived, never hand-edited.",
  "arcgramVersion": "v2",
- "engineMd5": "5bee3f2a1001",
- "builtDate": "2026-07-20",
+ "engineMd5": "f77e2eeb7727",
+ "builtDate": "2026-07-23",
  "count": 56,
  "jobs": {
   "antibad": 52,

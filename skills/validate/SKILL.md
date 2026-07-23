@@ -80,4 +80,4 @@ defect).
 
 Verify: `node validate-selftest.mjs` (36 checks - source tags, union attestation, clean rule, the
 code-omitted path, and byte parity with running the two siblings separately).
-Example: `arcgram-v2/public/examples/example-workflow.html` vs `example-workflow.config.cs` (clean).
+Example: `examples/example-workflow.html` vs `example-workflow.config.cs` (clean).

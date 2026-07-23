@@ -69,7 +69,7 @@ Pin the layout before you draw — later edits build on it. There are two decisi
 > **Decide Bug Mark up front.** Ask the user whether they want a **Bug Mark** defect review of the finished flow (§ Bug Mark). Settle it before you draw — never auto-annotate defects with icons.
 
 ### 1. Understand the topology
-Group nodes by category, decide reading direction, mark the critical connections. Logic-check the draft (step 7, pre-draw) before you place anything.
+Group nodes by category, decide reading direction, mark the critical connections. **Draw only the edges that exist in the real structure** — never wire every node in one group to every node in the next (a *mesh*). If a band-to-band connection comes out all-to-all, a structural element is missing (usually a convergence node — many inputs feed one decision); see `layout-tips.md §10b`. Logic-check the draft (step 7, pre-draw) before you place anything.
 
 ### 2. Read the references once
 `schema.md` for every field, `layout-tips.md` for positioning — read them instead of inlining a schema from memory. `schema.md` is gated against the engine (`schema-xref`), so any drift is caught.

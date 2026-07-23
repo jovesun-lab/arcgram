@@ -192,7 +192,27 @@ Bad `desc` patterns:
 
 ## 10b. H-layout authoring — collision-free by construction
 
-A *banded* (H) layout — a left→right spine across `BANDS`, with branch nodes attaching from a band above or below — has its own placement discipline. These four rules were derived by tuning a real H-flow until the full gate suite read all-green; follow them and most overlaps never appear, so you don't tune them out afterward.
+A *banded* (H) layout — a left→right spine across `BANDS`, with branch nodes attaching from a band above or below — has its own authoring discipline, in two parts: first get the **edges** right (a mesh is the single biggest cause of an un-fixable tangle), then **place** them. Both were derived by tuning real H-flows until the full gate suite read all-green; follow them and most overlaps never appear, so you don't tune them out afterward.
+
+### Author the edges from real structure — never a mesh
+
+Get the *connectivity* right before you place anything. The most common way a flow turns into an un-fixable tangle is drawing an edge from **every** node in one band to **every** node in the next — a full mesh. A mesh is not a routing problem you can tune out later: two fully-connected rows are mathematically non-planar (they contain the K(3,3) crossing graph), so the crossings and shared arrival lanes are a property of *the edges you chose*, not a limit of the router. No amount of re-routing planarizes it. Fix it at authoring time:
+
+- **A. Translate, never invent.** Every edge must come from a real relationship in the thing you're drawing. If the source material doesn't say A connects to B, there is no A→B edge. Don't generate edges by pairing up band members — that is exactly how a mesh appears.
+- **B. No all-to-all between bands.** If you're about to wire every node in one band to every node in the next, stop — a real structural element is missing. Usually it's a **convergence node** (many inputs feed *one* decision or aggregator) or a **class split** (each input routes to *one* bucket by type, not to all of them). Real flows are sparse.
+- **C. Mutually-exclusive outcomes are not parallel targets.** A set of exclusive results — `OK` / `WARN` / `FAIL`, or `approved` / `rejected` — is *one selected outcome*, not several things every input points at. Draw the **selection** (a decision node picks one), then send each outcome to **its own** next step. Don't fan every input into every outcome.
+- **D. A red is fixed, not stamped.** When the gate suite flags an overlap or crossing, that's a defect to fix — usually by correcting the edges (A–C) or the anchors (rules 1–4 below). Don't label it "by design" to silence the banner; "by design" is only for genuinely irreducible density, never for a tangle you authored.
+
+**The shape that stays clean — converge, then fan out once.** Most flows that *look* like they need a mesh actually have this structure hiding inside them:
+
+1. **Class-route the inputs** — each input goes to exactly one collector/counter by type, never to all of them.
+2. **Converge to a single decision node** — the collectors feed *one* node that makes the call. This pinch point is exactly what a mesh is missing.
+3. **Fan out once, from that decision** — the decision node branches to the outcomes. This single 1→N fan-out is the one the engine bundles cleanly onto a shared trunk.
+4. **One outcome → its own exit** — each branch goes to its own action or end state; exclusive outcomes never share a target.
+
+Sparse, faithful edges make the geometry fall out clean on the first try; a dense, invented mesh is red and stays red.
+
+### Place the wires — anchor by role
 
 **1. Anchor discipline — assign anchors by ROLE so no two wires share a column.** This is the single highest-leverage rule: almost every wire↔wire overlap traces to two wires occupying the same vertical column. Decide by the wire's role, not just its direction:
 

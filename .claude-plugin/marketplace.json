@@ -1,0 +1,25 @@
+{
+  "name": "arcgram",
+  "owner": {
+    "name": "jovesun-lab",
+    "url": "https://github.com/jovesun-lab"
+  },
+  "metadata": {
+    "description": "Arcgram — interactive node-and-edge diagrams as a single standalone HTML file, for any AI agent.",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "arcgram",
+      "source": "./",
+      "description": "Generate an interactive node-and-edge diagram as a single standalone HTML file (pan, zoom, hover tooltips, color-coded categories, orthogonal edge routing) — no build step, no npm, no CDN, no runtime. Bundles the Arcgram authoring skill plus Checkpoint / Reconcile / Validate self-checks. Agent-neutral.",
+      "category": "productivity",
+      "keywords": [
+        "diagram",
+        "topology",
+        "visualization",
+        "agent-skill"
+      ]
+    }
+  ]
+}

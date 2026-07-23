@@ -143,10 +143,10 @@
     if(!bugs.length){ listEl.innerHTML=''; return; }
     var openCount=bugs.filter(function(b){return !b.resolved;}).length;
     var head='<div class="abm-lh">'
-      +'<button class="abm-head">'+BUG_SVG+' Known bugs <span class="abm-cnt">'+openCount+'</span> <span class="abm-fold'+(expanded?' up':'')+'">&#9662;</span></button>'
+      +'<button class="abm-head">'+BUG_SVG+' Audit <span class="abm-cnt">'+openCount+'</span> <span class="abm-fold'+(expanded?' up':'')+'">&#9662;</span></button>'
       +'<span class="abm-sws">'
       +'<span class="abm-swwrap">Show on flow <button class="abm-sw abm-sw-flow'+(visible?' on':'')+'" title="toggle badges on the flow"><span class="kn"></span></button></span>'
-      +'<span class="abm-swwrap">Show completed <button class="abm-sw abm-sw-done'+(showCompleted?' on':'')+'" title="show fixed bugs on the flow"><span class="kn"></span></button></span>'
+      +'<span class="abm-swwrap">Show completed <button class="abm-sw abm-sw-done'+(showCompleted?' on':'')+'" title="show fixed items on the flow"><span class="kn"></span></button></span>'
       +'</span>'
       +'</div>';
     var body='';
@@ -155,7 +155,7 @@
 
         if(b.resolved) return '<div class="abm-row abm-done" data-id="'+b.id+'"><span class="abm-ck" style="color:'+closedCol(b)+'">'+closedGlyph(b)+'</span><span class="lv" style="background:'+col+'">'+lv(b).label+'</span><b>'+b.reason+'</b> <span class="ty">'+(b.disposition==='SUPERSEDED'?'<span style="color:#ffb454">SUPERSEDED</span>':b.type)+'</span></div>';
         return '<div class="abm-row" data-id="'+b.id+'"><span class="lv" style="background:'+col+'">'+lv(b).label+'</span><b style="color:'+col+'">'+b.reason+'</b> <span class="ty">'+b.type+'</span></div>';
-      }).join('')+'</div>' : '<div class="abm-body" style="color:#8a93b2;font-weight:400">No bugs marked.</div>';
+      }).join('')+'</div>' : '<div class="abm-body" style="color:#8a93b2;font-weight:400">No issues found.</div>';
     }
     listEl.innerHTML=head+body;
     listEl.querySelector('.abm-head').addEventListener('click',function(ev){ ev.stopPropagation(); expanded=!expanded; renderList(); });

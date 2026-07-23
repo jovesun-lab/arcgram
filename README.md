@@ -29,6 +29,15 @@ decision nodes · subflow drill-down · canvas-filter spotlight · theme switchi
 step, no npm, no CDN, no runtime — open it in any browser. Everything is computed at
 render time from a small data block you edit by hand. But that's the delivery, not the point.
 
+## Live demos — open in your browser
+
+No install. The engine running live on GitHub Pages — click one, then pan / zoom / hover:
+
+- [A small game loop](https://jovesun-lab.github.io/arcgram/examples/example.html) — canvas filter · columns · tooltips · critical path
+- [Thinking-flow: in-battle dialogue](https://jovesun-lab.github.io/arcgram/examples/example-thinkflow.html) — decision diamonds · Terracotta theme
+- [How the workflow works](https://jovesun-lab.github.io/arcgram/examples/usage-workflow.html) — the propose → draw → self-audit → fix loop, human in the loop
+- [Audit showcase](https://jovesun-lab.github.io/arcgram/examples/example-audit.html) — red pins flag findings on nodes; hover a pin or the list for its note
+
 ## See it at a glance
 
 **What Arcgram can do** — every feature as a group-boxed tree, like a visual feature spec:

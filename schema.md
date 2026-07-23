@@ -293,7 +293,7 @@ Any node with `type: 'commerce'` now picks up that palette. **Pick the border co
 > `_visualBands()` reads **only `fill` and `color`** (identical to `COLUMNS`). A band written with the old
 > three fields resolves to `themed(undefined)` → the band renders **transparent with a fallback chip**:
 > authored, and invisible. Migration: `tagFill` → `fill` · `tagColor` → `color` · **drop `areaBg`**.
-> (Live check: `arcgram-v2/public/examples/example-bands.html` is the correct 2-field form.)
+> (Live check: `examples/example-bands.html` is the correct 2-field form.)
 
 Bands render full-width in screen space — they extend beyond the diagram's world width on pan/zoom. This is intentional: bands frame *layers* of meaning, not specific X-ranges.
 
@@ -582,7 +582,7 @@ Plus in-data colors that get transformed at draw time: `BANDS[].fill`, `BANDS[].
 
 **Why the split:** semantic tokens describe the *content* of the diagram (nodes, edges, surfaces); chrome describes the *UI surrounding* the content. When the user switches to B&W or W&B, they expect the content to change but the controls to stay legible. Without this split, switcher buttons would become invisible after a theme flip.
 
-The W&B theme has one targeted exception — it applies `[data-theme="wb"]` overrides on the switcher tokens so the floating switcher panel reads correctly on the light canvas. See `references/themes.md` for details.
+The W&B theme has one targeted exception — it applies `[data-theme="wb"]` overrides on the switcher tokens so the floating switcher panel reads correctly on the light canvas. Those overrides live in `themes/default.css` (the `[data-theme="wb"]` block).
 
 ---
 
@@ -595,4 +595,4 @@ The W&B theme has one targeted exception — it applies `[data-theme="wb"]` over
 | Custom node types (per project) | Inline `<style>` in the diagram HTML |
 | Structural rules consuming these tokens | `themes/base.css` |
 
-The runtime semantic-token transformations (B&W desaturation, W&B inversion) are computed in JS via the engine's `refreshTheme()` and `desaturate()` functions. See `references/themes.md` for the math.
+The runtime semantic-token transformations (B&W desaturation, W&B inversion) are computed in JS via the engine's `refreshTheme()` and `desaturate()` functions in `template-v2.html` — read those functions for the exact math.

@@ -4647,11 +4647,15 @@ function buildExportSVG() {
   const pad=46;
 
   const lh=92, ls=lh/ARCGRAM_LOGO_VB[1], lw=ARCGRAM_LOGO_VB[0]*ls, mR=34, mT=22, lgap=20, logoBoxW=lw+16;
+
+  const DOMAIN_TXT='www.arcgram.io', DOMAIN_FS=17;
+  const _pf=ctx.font; ctx.font='600 '+DOMAIN_FS+'px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif';
+  const domainW=ctx.measureText(DOMAIN_TXT).width; ctx.font=_pf;
   const W=(x1-x0)+2*pad;
 
-  const LX0=W-logoBoxW-mR, LX1=W-mR, LY0=mT, LY1=mT+lh+lgap, ox0=pad-x0, oy0=pad-y0;
-  let logoOverlap=false; for(const b of opBoxes){ if(b.Xx+ox0>LX0 && b.nx+ox0<LX1 && b.Xy+oy0>LY0 && b.ny+oy0<LY1){ logoOverlap=true; break; } }
-  const topPad = logoOverlap ? (mT+lh+lgap) : pad;
+  const LX0=W-logoBoxW-mR, LX1=W-mR, DX0=mR, DX1=mR+domainW, LY0=mT, LY1=mT+lh+lgap, ox0=pad-x0, oy0=pad-y0;
+  let topOverlap=false; for(const b of opBoxes){ const bx0=b.nx+ox0, bx1=b.Xx+ox0, inV=(b.Xy+oy0>LY0 && b.ny+oy0<LY1); if(inV && ((bx1>LX0 && bx0<LX1) || (bx1>DX0 && bx0<DX1))){ topOverlap=true; break; } }
+  const topPad = topOverlap ? (mT+lh+lgap) : pad;
   const H=(y1-y0)+topPad+pad, ox=pad-x0, oy=topPad-y0;
   const bg = (getComputedStyle(document.documentElement).getPropertyValue('--canvas-bg')||'#0b0d18').trim();
   const esc = t => String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -4679,8 +4683,11 @@ function buildExportSVG() {
     ? ARCGRAM_LOGO_INNER.replace(/fill="#[0-9A-Fa-f]{3,6}"/g,'fill="#ffffff"').replace(/stroke="#[0-9A-Fa-f]{3,6}"/g,'stroke="#ffffff"')
     : ARCGRAM_LOGO_INNER;
   const tmFill = _darkCanvas ? '#ffffff' : '#5B4D42';
+
   o += '<g fill="none" transform="translate('+f(lx)+' '+f(ly)+') scale('+f(ls)+')">'+logoInner+'</g>';
   o += '<text x="'+f(lx+lw+2)+'" y="'+f(ly+268*ls)+'" fill="'+tmFill+'" font-size="'+f(Math.max(8,lh*0.10))+'" font-weight="600">™</text>';
+
+  o += '<text x="'+f(mR)+'" y="'+f(ly+lh*0.60)+'" fill="'+tmFill+'" font-size="'+DOMAIN_FS+'" font-weight="600">'+DOMAIN_TXT+'</text>';
   o += '</svg>';
   return o;
 }

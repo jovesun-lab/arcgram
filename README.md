@@ -46,10 +46,10 @@ No install. The engine running live on GitHub Pages — click one, then pan / zo
   <img src="assets/feature-tree.svg" alt="Arcgram System Feature Tree — every feature grouped by function" width="900">
 </p>
 
-**How you use it** — the end-to-end loop between your AI and you: propose → draw → self-audit → Bug Mark → fix, with the human in the loop:
+**How you use it** — the end-to-end loop between your AI and you: propose → draw → self-audit → Audit → fix, with the human in the loop:
 
 <p align="center">
-  <img src="assets/usage-workflow.svg" alt="Arcgram usage workflow — propose, draw, self-audit, Bug Mark, fix, with the human in the loop" width="900">
+  <img src="assets/usage-workflow.svg" alt="Arcgram usage workflow — propose, draw, self-audit, Audit, fix, with the human in the loop" width="900">
 </p>
 
 ## Quick start
@@ -93,7 +93,7 @@ The schema for `nodes`, `edges`, `COLUMNS`, `BANDS`, `CANVASES`, and
 - **Horizontal (H) layout** alongside vertical — band-grouped rows that cascade down the Y axis, collision-free by construction.
 - **Thinking-flow** — diamond decision nodes with branch/critical-path coloring.
 - **Subflow drill-down** — a node can open a nested flow overlay.
-- **Problem markers** — flag a node with `flag: '…'` to pin a red bug on its top-right corner (with a hover note) for an unresolved problem/loophole; draw-only, never affects layout.
+- **Audit markers** — flag a node with `flag: '…'` to pin a red bug on its top-right corner (with a hover note) for an unresolved problem/loophole; draw-only, never affects layout.
 - **Canvas filter / spotlight** — top-left tabs that dim everything except a chosen group.
 - **Auto-lifecycle band** — loose anchors above the top band.
 - **Comb / shared-trunk routing**, tightened pill anatomy, and theme-aware rendering.

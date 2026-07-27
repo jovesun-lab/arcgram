@@ -54,6 +54,10 @@ No install. The engine running live on GitHub Pages — click one, then pan / zo
 
 ## Quick start
 
+> **Using Claude Code or Cowork?** This repo is also a plugin marketplace. Install it with:
+> `/plugin marketplace add jovesun-lab/arcgram` — then `/plugin install arcgram` to get the
+> authoring skill plus the Checkpoint / Reconcile / Validate self-checks.
+
 1. **See it in action first:** open `examples/example.html` — a small worked diagram with
    the **top-left filter** (click a tab to spotlight a cross-cutting group),
    hover tooltips, columns, and a critical path.

@@ -1,7 +1,7 @@
 {
   "name": "arcgram",
   "version": "2.0.0",
-  "description": "Generate an interactive node-and-edge diagram as a single standalone HTML file — pan, zoom, hover tooltips, color-coded categories, and orthogonal edge routing. No build step, no npm, no CDN, no runtime; open in any browser. Ships the Arcgram authoring skill plus the Checkpoint, Reconcile, and Validate self-check skills. Agent-neutral: reads as plain markdown on any framework.",
+  "description": "Surface an AI agent's thinking and make it auditable. Instead of a wall of prose, your agent commits its reasoning to typed nodes and explicit edges — real data you inspect and correct node by node, converging on ground truth that carries across turns, sessions, and agents. Use it as an agent harness or operating frame: propose → draw → self-audit → fix, human in the loop. Delivered as a single standalone interactive HTML file — no build step, no npm, no CDN, no runtime; open in any browser. Ships the Arcgram authoring skill plus the Checkpoint, Reconcile, and Validate self-check skills. Agent-neutral: reads as plain markdown on any framework.",
   "author": {
     "name": "jovesun-lab",
     "url": "https://github.com/jovesun-lab"

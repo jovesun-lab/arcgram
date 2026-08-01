@@ -45,10 +45,8 @@ function runJson(json) {
 
 async function runRender(file) {
   const { chromium } = await import('playwright');
-  const { execSync } = await import('node:child_process');
-  const exe = process.env.PLAYWRIGHT_CHROME
-    || execSync('ls /sessions/*/mnt/outputs/.playwright-cache/chromium-*/chrome-linux/chrome 2>/dev/null | head -1', { encoding: 'utf8' }).trim();
-  const b = await chromium.launch({ executablePath: exe, args: ['--no-sandbox', '--disable-dev-shm-usage', '--single-process'] });
+  const exe = process.env.PLAYWRIGHT_CHROME;
+  const b = await chromium.launch({ ...(exe ? { executablePath: exe } : {}), args: ['--no-sandbox', '--disable-dev-shm-usage', '--single-process'] });
   const p = await (await b.newContext({ viewport: { width: 1500, height: 1150 } })).newPage();
   await p.goto('file://' + path.resolve(file), { waitUntil: 'load' });
   await p.waitForTimeout(700);

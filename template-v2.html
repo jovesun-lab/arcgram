@@ -291,7 +291,14 @@
   var ARCGRAM_ATTRIBUTION = true;
   var ARCGRAM_META = { name:'Arcgram', version:'v2', license:'Apache-2.0', url:'https://arcgram.io', copyright:'© 2026 Rae Sun' };
   if (typeof window !== 'undefined') { window.__arcgramMeta = ARCGRAM_META; window.__arcgramInspect = window.__arcgramInspect || function(){ return { meta: ARCGRAM_META }; }; }
-  if (!ARCGRAM_ATTRIBUTION && typeof document !== 'undefined' && document.getElementById) { var b = document.getElementById('arcgram-badge'); if (b && b.remove) b.remove(); }
+  if (typeof document !== 'undefined' && document.getElementById) {
+    var b = document.getElementById('arcgram-badge');
+    if (b) {
+      if (!ARCGRAM_ATTRIBUTION) { if (b.remove) b.remove(); }
+
+      else { b.setAttribute('href', ARCGRAM_META.url.replace(/\/+$/, '') + '/?ref=diagram'); }
+    }
+  }
 })();
 </script>
 <script>
@@ -3076,8 +3083,10 @@ function spreadParallelLanes() {
     for (let i = 0; i < p.length - 1; i++) { const a = p[i], b = p[i + 1];
       const end = i === 0 ? 'src' : (i === p.length - 2 ? 'tgt' : 'mid');
       const isBus = e._around === 'lat' && end === 'mid' && Math.abs(a.y - b.y) < 1.5 && Math.abs(a.x - b.x) > 2 && e._laneY != null && Math.abs(a.y - e._laneY) < 1.5;
-      if (Math.abs(a.y - b.y) < 1.5 && Math.abs(a.x - b.x) > 2)      out.push({ e, axis: 'H', co: a.y, c0: Math.min(a.x, b.x), c1: Math.max(a.x, b.x), end, isBus });
-      else if (Math.abs(a.x - b.x) < 1.5 && Math.abs(a.y - b.y) > 2) out.push({ e, axis: 'V', co: a.x, c0: Math.min(a.y, b.y), c1: Math.max(a.y, b.y), end, isBus: false }); }
+
+      const isSrcLane = e._around === 'vhv' && end === 'mid' && Math.abs(a.y - b.y) < 1.5 && Math.abs(a.x - b.x) > 2 && e._srcLaneY != null && Math.abs(a.y - e._srcLaneY) < 1.5;
+      if (Math.abs(a.y - b.y) < 1.5 && Math.abs(a.x - b.x) > 2)      out.push({ e, axis: 'H', co: a.y, c0: Math.min(a.x, b.x), c1: Math.max(a.x, b.x), end, isBus, isSrcLane });
+      else if (Math.abs(a.x - b.x) < 1.5 && Math.abs(a.y - b.y) > 2) out.push({ e, axis: 'V', co: a.x, c0: Math.min(a.y, b.y), c1: Math.max(a.y, b.y), end, isBus: false, isSrcLane: false }); }
     return out; };
 
   const srcPinned = (e) => e.offset !== undefined;
@@ -3095,12 +3104,23 @@ function spreadParallelLanes() {
       if (Math.min(A.c1, B.c1) - Math.max(A.c0, B.c0) < MIN_OVL) continue; n++; }
     return n; };
 
+  const nodeGrazeCount = () => { const WHn = (typeof WIRE_HANDLE !== 'undefined' ? WIRE_HANDLE : 10); let n = 0;
+    for (const e of edges) { const pth = e._path; if (!pth || pth.length < 2) continue;
+      for (const nd of nodes) { if (!nd || nd.x == null || nd.id === e.f || nd.id === e.t) continue;
+        for (let i = 0; i < pth.length - 1; i++) { const a2 = pth[i], b2 = pth[i + 1];
+          const lx0 = Math.min(a2.x, b2.x) - 0, lx1 = Math.max(a2.x, b2.x), ly0 = Math.min(a2.y, b2.y), ly1 = Math.max(a2.y, b2.y);
+          const dx = Math.max(nd.x - lx1, lx0 - (nd.x + nd.w), 0), dy = Math.max(nd.y - ly1, ly0 - (nd.y + (nd.h || 0)), 0);
+          if (Math.hypot(dx, dy) < WHn) { n++; i = pth.length; } } } }
+    return n; };
+
   const rank = (r) => r.isBus ? 0
+    : r.isSrcLane ? 0
     : r.end === 'tgt' ? (tgtMovable(r.e) ? 2 : 99)
     : r.end === 'src' ? (srcPinned(r.e) ? 99 : (sideCount(r.e, 'src') === 1 ? 1 : 3))
     : 99;
   const applyMove = (r, to) => { const e = r.e;
     if (r.isBus) { const prev = e._laneY; e._laneY = to; return () => { e._laneY = prev; }; }
+    if (r.isSrcLane) { const prev = e._srcLaneY; e._srcLaneY = to; return () => { e._srcLaneY = prev; }; }
     const key = r.end === 'src' ? '_srcAutoOffset' : '_tgtAutoOffset'; const prev = e[key] || 0;
     e[key] = prev + (to - r.co); return () => { e[key] = prev; }; };
   const pairKey = (A, B) => [`${A.e.f}>${A.e.t}#${Math.round(A.co)}`, `${B.e.f}>${B.e.t}#${Math.round(B.co)}`].sort().join('|');
@@ -3119,13 +3139,19 @@ function spreadParallelLanes() {
     let moved = false;
     for (const m of cand) {
       const o = (m === A) ? B : A;
-      const to = (m.co <= o.co) ? o.co - TARGET : o.co + TARGET;
-      const g0 = grazeCount(), s0 = collinearSignalCount(), x0 = avoidableCrossCount();
-      const revert = applyMove(m, to); buildPaths();
-      if (grazeCount() < g0 && collinearSignalCount() <= s0 && avoidableCrossCount() <= x0) {
-        moved = true; diag.push(`${m.e.f}->${m.e.t} @${A.axis}${Math.round(m.co)}→${Math.round(to)} (${m.isBus ? 'bus' : m.end} r${rank(m)})`); break;
+      const toSame = (m.co <= o.co) ? o.co - TARGET : o.co + TARGET;
+
+      const toFlip = (m.co <= o.co) ? o.co + TARGET : o.co - TARGET;
+      for (const to of [toSame, toFlip]) {
+        const g0 = grazeCount(), s0 = collinearSignalCount(), x0 = avoidableCrossCount();
+        const n0 = (to === toFlip) ? nodeGrazeCount() : 0;
+        const revert = applyMove(m, to); buildPaths();
+        if (grazeCount() < g0 && collinearSignalCount() <= s0 && avoidableCrossCount() <= x0 && (to !== toFlip || nodeGrazeCount() <= n0)) {
+          moved = true; diag.push(`${m.e.f}->${m.e.t} @${A.axis}${Math.round(m.co)}→${Math.round(to)} (${m.isBus ? 'bus' : m.end} r${rank(m)})`); break;
+        }
+        revert(); buildPaths();
       }
-      revert(); buildPaths();
+      if (moved) break;
     }
     if (!moved) { giveUp.add(pairKey(A, B)); diag.push(`${A.e.f}->${A.e.t} ∥ ${B.e.f}->${B.e.t} @${A.axis}${Math.round((A.co + B.co) / 2)} UNRESOLVED`); }
   }
@@ -3149,14 +3175,14 @@ function spreadParallelLanes() {
   const labeled = edges.filter(e => e.lbl && e._path && !e._fanInBundled);
   const pillGrazeCount = () => { let n = 0;
     for (const e of labeled) { const box = pillBoxOf(e); if (!box) continue;
-      for (const o of edges) { if ((o.f === e.f && o.t === e.t) || o._fanInBundled) continue;
+      for (const o of edges) { if (o.f === e.f || o._fanInBundled) continue;
         for (const s of runsOf(o)) { const { d, side } = segBox(s, box); if (side && d < PILL_CLEARANCE - 0.01) { n++; break; } } } }
     return n; };
   const pillGiveUp = new Set(); let pg = 0;
   while (pg++ < 80) {
     let worst = null;
     for (const e of labeled) { const box = pillBoxOf(e); if (!box) continue;
-      for (const o of edges) { if ((o.f === e.f && o.t === e.t) || o._fanInBundled) continue;
+      for (const o of edges) { if (o.f === e.f || o._fanInBundled) continue;
         for (const s of runsOf(o)) { const info = segBox(s, box); if (!info.side || info.d >= PILL_CLEARANCE - 0.01) continue;
           const key = `${e.f}>${e.t}|${o.f}>${o.t}#${Math.round(s.co)}`; if (pillGiveUp.has(key)) continue;
           if (!worst || info.d < worst.d) worst = { pillE: e, box, s, info, key }; } } }
@@ -3164,13 +3190,21 @@ function spreadParallelLanes() {
     const { box, s, info, key } = worst;
     const target = info.side === 'above' ? box.y0 - PCLR : info.side === 'below' ? box.y1 + PCLR
                  : info.side === 'left' ? box.x0 - PCLR : box.x1 + PCLR;
+
+    const targetFlip = info.side === 'above' ? box.y1 + TARGET : info.side === 'below' ? box.y0 - TARGET
+                     : info.side === 'left' ? box.x1 + TARGET : box.x0 - TARGET;
     let moved = false;
     if (rank(s) < 99) {
-      const p0 = pillGrazeCount(), g0 = grazeCount(), c0 = collinearSignalCount(), x0 = avoidableCrossCount();
-      const revert = applyMove(s, target); buildPaths();
-      if (pillGrazeCount() < p0 && grazeCount() <= g0 && collinearSignalCount() <= c0 && avoidableCrossCount() <= x0) {
-        moved = true; diag.push(`PILL ${worst.pillE.f}->${worst.pillE.t} ↔ ${s.e.f}->${s.e.t} ${info.side} ${info.d.toFixed(1)}→push ${s.isBus ? 'bus' : s.end}`);
-      } else { revert(); buildPaths(); }
+      for (const tgt of [target, targetFlip]) {
+        const p0 = pillGrazeCount(), g0 = grazeCount(), c0 = collinearSignalCount(), x0 = avoidableCrossCount();
+        const n0 = (tgt === targetFlip) ? nodeGrazeCount() : 0;
+        const revert = applyMove(s, tgt); buildPaths();
+        if (pillGrazeCount() < p0 && grazeCount() <= g0 && collinearSignalCount() <= c0 && avoidableCrossCount() <= x0 && (tgt !== targetFlip || nodeGrazeCount() <= n0)) {
+          moved = true; diag.push(`PILL ${worst.pillE.f}->${worst.pillE.t} <-> ${s.e.f}->${s.e.t} ${info.side} ${info.d.toFixed(1)} push ${s.isBus ? 'bus' : s.end}${tgt === targetFlip ? ' (flip)' : ''}`);
+          break;
+        }
+        revert(); buildPaths();
+      }
     }
     if (!moved && s.axis === 'V' && s.e._viaX != null && Math.abs(s.co - s.e._viaX) < 1.5 && s.e.via == null && s.e.offset == null && !s.e._fanInBundled) {
 

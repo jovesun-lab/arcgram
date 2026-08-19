@@ -303,6 +303,12 @@
 </script>
 <script>
 
+/*! Arcgram usage telemetry (ARCGRAM_TELEMETRY): OFF by default. Set it true to allow ONE anonymous,
+    content-free "diagram opened" ping per open -- no personal data, none of your diagram's content, no
+    cookies; it honours Do Not Track and does nothing offline. Turn it off here, or use a telemetry-free build. */
+
+const ARCGRAM_TELEMETRY = false;
+const ARCGRAM_TELEMETRY_URL = '';
 // ===========================================================================
 //  DATA  --  fill these arrays with your own diagram. Full reference: schema.md
 // ---------------------------------------------------------------------------
@@ -3676,26 +3682,22 @@ function pillBoxFor(e) {
     const _in = pt => pt.x >= _box.x && pt.x <= _box.x + _box.w && pt.y >= _box.y && pt.y <= _box.y + _box.h;
     let _bi = -1; for (let i = 0; i < p.length; i++) { if (_in(p[i])) { _bi = i; break; } }
     if (_bi > 0) {
-      const _out = p[_bi - 1], _ins = p[_bi];
-      let _B = null;
-      if (Math.abs(_out.x - _ins.x) < 1e-6) _B = { x: _out.x, y: _out.y <= _ins.y ? _box.y : _box.y + _box.h };
-      else if (Math.abs(_out.y - _ins.y) < 1e-6) _B = { x: _out.x <= _ins.x ? _box.x : _box.x + _box.w, y: _out.y };
-      if (_B) {
-        const dx = _out.x - _B.x, dy = _out.y - _B.y, len = Math.hypot(dx, dy) || 1, ux = dx / len, uy = dy / len;
-        const along = Math.abs(uy) > Math.abs(ux) ? h / 2 : w / 2;
-        const back = along + PILL_CLEARANCE;
-        cx = _B.x + ux * back; cy = _B.y + uy * back;
 
-        if (_tg.label) {
-          ctx.save(); ctx.font = '600 12px system-ui, sans-serif';
-          const _tw = ctx.measureText(_tg.label).width; ctx.restore();
-          const _tag = { x: _box.x + 10, y: _box.y + PILL_CLEARANCE, w: _tw + 12, h: PILL_RENDERED_H };
-          const _near = (a, bx) => !(a.x > bx.x + bx.w + PILL_CLEARANCE || a.x + a.w < bx.x - PILL_CLEARANCE || a.y > bx.y + bx.h + PILL_CLEARANCE || a.y + a.h < bx.y - PILL_CLEARANCE);
-          let _g = 0;
-          while (_near({ x: cx - w / 2, y: cy - h / 2, w, h }, _tag) && _g++ < 24) { cx += ux * PILL_CLEARANCE; cy += uy * PILL_CLEARANCE; }
-        }
-        return { x: cx - w / 2, y: cy - h / 2, w, h };
+      const _a = p[p.length - 1], _b = p[p.length - 2];
+      const _dx = _a.x - _b.x, _dy = _a.y - _b.y, _len = Math.hypot(_dx, _dy) || 1, _ux = _dx / _len, _uy = _dy / _len;
+      const _along = Math.abs(_dy) > Math.abs(_dx) ? h / 2 : w / 2;
+      let _tag = null;
+      if (_tg.label) {
+        ctx.save(); ctx.font = '600 12px system-ui, sans-serif';
+        const _tw = ctx.measureText(_tg.label).width; ctx.restore();
+        _tag = { x: _box.x + 10, y: _box.y + PILL_CLEARANCE, w: _tw + 12, h: PILL_RENDERED_H };
       }
+      const _hitBox = (X, Y) => (X + w / 2 + PILL_CLEARANCE) > _box.x && (X - w / 2 - PILL_CLEARANCE) < _box.x + _box.w && (Y + h / 2 + PILL_CLEARANCE) > _box.y && (Y - h / 2 - PILL_CLEARANCE) < _box.y + _box.h;
+      const _hitTag = (X, Y) => !!_tag && !(X - w / 2 > _tag.x + _tag.w + PILL_CLEARANCE || X + w / 2 < _tag.x - PILL_CLEARANCE || Y - h / 2 > _tag.y + _tag.h + PILL_CLEARANCE || Y + h / 2 < _tag.y - PILL_CLEARANCE);
+      let _back = arrivalPillBack(_along), _g = 0;
+      cx = _a.x - _ux * _back; cy = _a.y - _uy * _back;
+      while ((_hitBox(cx, cy) || _hitTag(cx, cy)) && _g++ < 64) { _back += PILL_CLEARANCE; cx = _a.x - _ux * _back; cy = _a.y - _uy * _back; }
+      return { x: cx - w / 2, y: cy - h / 2, w, h };
     }
   }
   if (e._overTopFanout && p.length >= 2) {
@@ -5528,6 +5530,23 @@ try { var __lr = __arcgramLiveCheck();
 } catch(_e){ var __isNode2 = (typeof process!=='undefined' && process.versions && process.versions.node);
   if (typeof console!=='undefined' && !__isNode2) console.error('[live-check] error', _e); }
 if (typeof render === 'function') render();
+
+/*! Render beacon: sends ONE anonymous "opened" ping when usage telemetry is enabled (see
+    ARCGRAM_TELEMETRY in the data section). No personal data, none of your diagram's content, no cookies
+    or fingerprinting; it honours Do Not Track and silently does nothing offline. OFF by default. */
+
+(function __arcgramRenderBeacon(){
+  try {
+    if (typeof ARCGRAM_TELEMETRY === 'undefined' || ARCGRAM_TELEMETRY !== true) return;
+    var url = (typeof ARCGRAM_TELEMETRY_URL !== 'undefined' && ARCGRAM_TELEMETRY_URL) ? String(ARCGRAM_TELEMETRY_URL) : '';
+    if (!url) return;
+    if (typeof navigator === 'undefined' || typeof window === 'undefined') return;
+    var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+    if (dnt === '1' || dnt === 'yes' || dnt === true) return;
+    if (navigator.sendBeacon) { navigator.sendBeacon(url); return; }
+    var i = new Image(); i.referrerPolicy = 'no-referrer'; i.src = url;
+  } catch (_e) {  }
+})();
 </script>
 </body>
 </html>

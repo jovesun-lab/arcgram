@@ -218,7 +218,7 @@ Any node with `type: 'commerce'` now picks up that palette. **Pick the border co
 | `style` | `'solid'\|'dashed'\|'bold'` | no | `'solid'` | Stroke style. Maps to `--edge-default` / `--edge-dashed` / `--edge-bold`. |
 | `crit` | boolean | no | `false` | If `true`: red (`--edge-crit`), thicker, drawn on top of other edges. |
 | `route` | `'vhv'\|'hvh'\|'3leg'` | no | `'vhv'` | Path router. See below. |
-| `via` | number | when `route='3leg'` | — | World Y-coordinate of the middle horizontal leg. |
+| `via` | number | no | — | World X-coordinate of the vertical middle leg on lateral (lft/rgt) routes. Ignored on vertical (top/bot) anchors — see the 3leg note. |
 | `lbl` | string | no | — | Midpoint label. For critical paths, combine the marker with a 1–3 word verb: `'🔑1 +GP'`, `'🔑2 drives'`. |
 | `offset` | number | no | `0` | Pixel offset applied to both endpoints (perpendicular to the edge), to separate parallel lines. |
 | `branch` | `'Y'\|'N'` | no | — | Marks an edge as a decision-diamond branch: `'Y'` → green ✓ badge at the exit, `'N'` → red ✗ badge. The branch colors are a **fixed convention** (see [§ Decision diamond](#decision-diamond-thinking-flow)) — not author-set. |
@@ -244,6 +244,8 @@ Any node with `type: 'commerce'` now picks up that palette. **Pick the border co
 ```
 
 **`3leg`** — three segments with the horizontal middle leg at `via: Y`. Use when an edge needs to detour around other nodes — for example, a connection from a top-row node down to a bottom-row node that has to go *under* the entire middle of the diagram.
+
+> ⚠️ **Note — under revision:** the current engine auto-computes this middle-leg Y for vertical-anchored (top/bot) edges and does **not** read `via` there. Author control of the detour lane via `via: Y` is being revised. On lateral (lft/rgt) routes, `via` is the **X** of the vertical middle leg — see the `via` field above.
 
 ```
    A          via: y=1040

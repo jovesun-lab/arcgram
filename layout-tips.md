@@ -111,6 +111,8 @@ For each edge, pick the router this way:
 
 4. **Source far away, edge needs to detour around a block of nodes?**
    - Use `3leg` with an explicit `via: Y`. The Y should be in a "lane" that doesn't contain any nodes. Common pattern: route a long edge along the very bottom (`via: H - 20`) or the very top (`via: 10`) of the canvas.
+   - ⚠️ **Under revision:** the current engine does **not** honor this `via: Y` detour lane on vertical-anchored (top/bot) edges — the middle-leg Y is auto-computed. On lateral (lft/rgt) edges, `via` sets the vertical middle leg's **X**.
+
 
 5. **Source and target on the same node (self-loop)?**
    - Don't. The renderer doesn't support self-loops cleanly. If you need cyclic semantics, draw two opposing edges (A→B and B→A) with `offset` to separate them.
@@ -120,6 +122,9 @@ For each edge, pick the router this way:
 Any leg of a routed edge (vertical or horizontal) that passes near a node the edge does *not* connect to must stay **at least 10–30 px** clear of that node's bounding box. A wire scraping a node's edge reads to the viewer as "this wire connects to that node" — a false signal.
 
 When picking `via` Y for a `3leg` route, do this check:
+
+> ⚠️ **Under revision:** this `via: Y` control is **not honored by the current engine** for vertical-anchored (top/bot) edges — the middle-leg Y is auto-computed. The check below is retained for when author control returns; on lateral (lft/rgt) routes, `via` is an **X** (the vertical middle leg's position).
+
 
 - For each *vertical* leg of the path, walk down the column at that X and confirm no unrelated node's bounding box crosses the leg's Y range. Use the runtime size (engine sets `n.w` / `n.h` via the 4-phase staircase — `n.w` is 176 at floor, up to 240; `n.h` is 48 at floor, up to 128). For collision checks, read `n.w` / `n.h` rather than assuming a fixed size.
 - For the *horizontal* leg at `via`, confirm `via` is at least 10 px above (or below) every unrelated node's top (or bottom) edge that overlaps the leg's X range.
@@ -243,7 +248,7 @@ The trap: any wire entering a node's `top` drops vertically at that node's cente
 | Too many critical edges | Trim. Only mark edges whose failure = system failure. |
 | Long labels overflow | Shorten the `label`; put the long version in `desc`. |
 | Type isn't in `COL` | Either add it to `COL` (with `{fill, stroke}`) or use an existing type. The renderer falls back to `memory` but you lose semantic color. |
-| Routed wire grazes an unrelated node | Move `via` Y to give 10–30 px clearance; or change anchor (`fromPt`/`toPt`) so the leg uses a different X column. |
+| Routed wire grazes an unrelated node | Change anchor (`fromPt`/`toPt`) so the leg uses a different lane; on lateral (lft/rgt) edges, move `via` (the vertical leg's X). The vertical-edge middle-leg Y is auto-computed (under revision). |
 
 ---
 

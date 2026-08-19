@@ -190,7 +190,7 @@ The model returns a complete HTML file in its response. Copy it to a `.html` fil
 
 **Edges overlap each other or pass through nodes.**
 
-- Read `layout-tips.md` section 6 (router selection) and the Clearance subsection — most overlap issues are fixed by switching routers or adjusting `via` Y on `3leg` edges.
+- Read `layout-tips.md` section 6 (router selection) and the Clearance subsection — most overlap issues are fixed by switching routers or adjusting `via` (the vertical middle leg's X) on lateral `hvh` edges.
 
 **Text looks blurry on a Retina display.**
 

@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Arcgram — surface an AI agent's reasoning as auditable data you can inspect and correct. Delivered as a single standalone HTML diagram for human↔AI collaboration, for any AI agent.",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "plugins": [
     {

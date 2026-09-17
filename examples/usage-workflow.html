@@ -196,7 +196,7 @@
 <div id="topbar">
   <div id="topbar-left">
     <h1 class="title-main">Arcgram — how the workflow works</h1>
-    <p class="title-sub-1">Agent draws its own reasoning -> self-audits -> Bug Marks -> fixes; the user views to decide</p>
+    <p class="title-sub-1">Agent draws its own reasoning -> self-audits -> Audit marks -> fixes; the user views to decide</p>
     <p class="title-sub-2 sample-note" style="color:var(--title-sub-1);font-style:italic">Free-version sample &mdash; quality differs from the official release</p>
     <p class="title-sub-2" id="arcgram-attestation" style="opacity:.7"></p>
     <div class="title-sub-2-row">
@@ -327,18 +327,18 @@ const nodes = [
   { id:'N_PROPOSE', band:'AGENT', column:'PROPOSE', label:'Propose approach',      cat:'STEP 1', role:'state', type:'session', desc:'The agent reaches a proposed plan / design / decision. Normally this would stay as prose.', x:60,   y:90 },
   { id:'N_DRAW',    band:'AGENT', column:'DRAW',    label:'Draw as Arcgram',        cat:'STEP 2', role:'state', type:'doc',     desc:'The agent takes its reasoning as data and hands it to the Arcgram engine to draw.', x:460,  y:90 },
   { id:'N_AUDIT',   band:'AGENT', column:'AUDIT',   label:'Read back & self-audit', cat:'STEP 3', role:'state', type:'tool',    desc:'Read the produced flow back as data and check for data / logic holes: orphan step, dead goal, missing link, unhandled branch, contradiction.', x:842,  y:90 },
-  { id:'N_MARK',    band:'AGENT', column:'MARK',    label:'Bug Mark the holes',     cat:'STEP 4', role:'state', type:'code',    desc:'Each hole found gets a red Bug Mark on the specific node, with a note.', x:1153, y:90 },
+  { id:'N_MARK',    band:'AGENT', column:'MARK',    label:'Audit-mark holes',     cat:'STEP 4', role:'state', type:'code',    desc:'Each hole found gets a red Audit mark on the specific node, with a note.', x:1153, y:90 },
   { id:'N_FIX',     band:'AGENT', column:'FIX',     label:'Fix & re-check',         cat:'STEP 5', role:'state', type:'core',    desc:'Revise the plan / data to close each hole, re-draw, re-audit. Repeat until clean.', x:1553, y:90 },
 
   // ARCGRAM ENGINE + TOOLS lane (middle) -- the machinery the agent's data passes THROUGH
   { id:'F_SCHEMA', band:'ENGINE', column:'PROPOSE', label:'Schema / SKILL',     cat:'ENGINE + TOOLS', role:'state', type:'doc',  desc:'The authoring contract: what a node / edge / band is, and how to lay a flow out. What the agent follows when it draws.', x:60,   y:330 },
   { id:'F_ENGINE', band:'ENGINE', column:'DRAW',    label:'Engine',             cat:'ENGINE + TOOLS', role:'state', type:'core', desc:'Auto-layout + orthogonal routing + render -> a single standalone HTML. No build, no runtime. The agent data passes through here to become the flow.', x:460,  y:330 },
   { id:'F_GATES',  band:'ENGINE', column:'AUDIT',   label:'checkpoint + gates', cat:'ENGINE + TOOLS', role:'state', type:'tool', desc:'The coherence validator (orphans, islands, code<->diagram) + the geometry gates. The instruments the self-audit runs.', x:842,  y:330 },
-  { id:'F_MARK',   band:'ENGINE', column:'MARK',    label:'Bug Mark',           cat:'ENGINE + TOOLS', role:'state', type:'code', desc:'Marks a hole on a node and tracks it found -> resolved.', x:1153, y:330 },
+  { id:'F_MARK',   band:'ENGINE', column:'MARK',    label:'Audit',              cat:'ENGINE + TOOLS', role:'state', type:'code', desc:'Marks a hole on a node and tracks it found -> resolved.', x:1153, y:330 },
 
   // THE ARCGRAM lane -- the produced artifact, evolving
   { id:'ART_DIAG',  band:'ARCGRAM', column:'DRAW',   label:'The Arcgram flow HTML',        cat:'ARTIFACT · flow',   role:'output', type:'artifact', desc:'One standalone HTML -- human-readable AND agent-readable. Pan / zoom / hover. Produced by the engine from the agent data.', x:460,  y:570 },
-  { id:'ART_MARK',  band:'ARCGRAM', column:'MARK',   label:'Logic/Data bug mark on nodes', cat:'ARTIFACT · marked', role:'output', type:'artifact', desc:'The same flow, now carrying the Bug Marks -- each open hole shown on its node.', x:1153, y:570 },
+  { id:'ART_MARK',  band:'ARCGRAM', column:'MARK',   label:'Audit marks on nodes', cat:'ARTIFACT · marked', role:'output', type:'artifact', desc:'The same flow, now carrying the Audit marks -- each open hole shown on its node.', x:1153, y:570 },
   { id:'ART_CLEAN', band:'ARCGRAM', column:'FIX',    label:'Clean diagram',                cat:'ARTIFACT · clean',  role:'output', type:'artifact', desc:'Holes resolved. A diagram that is both a communication artifact and a verification artifact.', x:1553, y:570 },
 
   // HUMAN IN THE LOOP lane (bottom)
@@ -356,7 +356,7 @@ const edges = [
   // agent -> engine/tool -> artifact (down each column)
   { f:'N_DRAW',   t:'F_ENGINE', fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'through the engine' },
   { f:'F_ENGINE', t:'ART_DIAG', fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'produces flow' },
-  { f:'N_MARK',   t:'F_MARK',   fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'via Bug Mark' },
+  { f:'N_MARK',   t:'F_MARK',   fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'via Audit' },
   { f:'F_MARK',   t:'ART_MARK', fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'marks' },
   { f:'N_AUDIT',  t:'F_GATES',  fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'runs gates' },
   { f:'N_FIX',    t:'ART_CLEAN', fromPt:'bot', toPt:'top', route:'vhv', style:'solid', lbl:'resolved' },

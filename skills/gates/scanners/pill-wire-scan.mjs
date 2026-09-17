@@ -73,11 +73,18 @@ function detect(j) {
     pills = j.pillRects.map(r => ({ id: `${r.f}→${r.t}`, f: r.f, t: r.t, lbl: r.lbl, x: r.x, y: r.y, w: r.w, h: r.h }));
 
   const violations = [];
+
+  const sibTgtsOf = (p) => { const t = new Set();
+    for (const e of (j.engine.edges || [])) if (e.f === p.f && e.t !== p.t) t.add(e.t);
+    return t; };
   for (const p of pills) {
     let worst = null;
+    const sibT = sibTgtsOf(p);
     segsByPath.forEach((segs, pi) => {
       const own = pathEndNodes[pi].has(p.f) && pathEndNodes[pi].has(p.t);
       if (own) return;
+      const sib = pathEndNodes[pi].has(p.f) && [...sibT].some(t => pathEndNodes[pi].has(t));
+      if (sib) return;
       for (const s of segs) {
         const { d, side } = segRectInfo(s, p);
         if (d < PILL_CLEARANCE) {

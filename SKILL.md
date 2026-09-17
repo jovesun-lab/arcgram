@@ -137,13 +137,20 @@ Audit is a defect-review overlay for a *drawn* flow: a pulsing ring + a short re
 <script src="extensions/arcgram-bugmarks.js"></script>
 <script>
   ArcgramBugs.set([
-    { level:'high',   anchor:{ node:'NODE_ID' },       reason:'wire crosses node', desc:'route around — a wire through a node is a level-1 defect' },
-    { level:'medium', anchor:{ edge:{ f:'A', t:'B' } }, reason:'authored concern',  desc:'…' }
+    { id:'BUG-260911-ag-01', level:'high', type:'logic', anchor:{ node:'NODE_ID' },
+      reason:'no failure branch', desc:'a declined payment dead-ends here — the path assumes success',
+      evidence:'scanner: 1 outgoing edge (success), 0 failure branch' },
+    { id:'BUG-260911-ag-02', level:'medium', type:'logic', anchor:{ edge:{ f:'A', t:'B' } },
+      reason:'unstated precondition', desc:'…', evidence:'doc: the spec requires a confirmed session here' }
   ]);
 </script>
 ```
 
-`level` marks the source: **`high`** = a gate / geometry defect (e.g. a wire through a node), **`medium`** = an authored concern, **`low`** = an agent advisory. Anchor each mark to a `node:'ID'` or an `edge:{ f, t }`. Full API + fields: `extensions/README.md`.
+`level` is **severity — how bad it is**, not where it came from: **`high`** = the flow is wrong and someone will hit it, **`medium`** = a real concern worth a decision, **`low`** = an advisory. (The checkpoint skill's `severity` field is a *different* measurement that happens to share the word — never map one onto the other.) Where a mark came from goes in `evidence`, prefixed `scanner:` / `doc:` / `derived:`.
+
+Mark **reasoning**, not geometry: use `type:'logic'`. Geometry is gated, not annotated — the gate bundle checks it and the engine fixes it. Anchor each mark to a `node:'ID'` or an `edge:{ f, t }`, give it an id shaped `BUG-<yymmdd>-<agent>-<seq>`, and ground it with `evidence`. Full API, the closure fields, and the id rules: `extensions/README.md`.
+
+**Closed marks on the flow — an authored per-map default.** Resolved rings are hidden by default (the header then says "N closed hidden"); a map whose closure evidence is part of the story declares `<!--BUGMARK:SHOW-COMPLETED-->` before the extension's script region and its closed rings show from the first load. Settle it with the user like the Audit pass itself. Stamp semantics + the unknown-stamp allow-list: `extensions/README.md § Per-map stamps`.
 
 ---
 

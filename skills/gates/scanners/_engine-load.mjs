@@ -57,7 +57,9 @@ export function loadEngine(file, exports = []) {
   const { d, w } = makeStub();
   const noop = () => {};
   class P2D { constructor(x) { this.__pathStr = x || ''; } }
-  globalThis.Path2D = P2D;
+
+  w.Path2D = P2D;
+  Object.defineProperty(globalThis, 'Path2D', { configurable: true, get: () => w.Path2D, set: (v) => { w.Path2D = v; } });
   globalThis.document = d;
   globalThis.window = w;
   globalThis.requestAnimationFrame = noop;

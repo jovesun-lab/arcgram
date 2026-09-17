@@ -107,8 +107,10 @@ function scan(engine, pills, pop) {
     const tn = nodeById[p.t]; const tg = groupOfNode(tn); if (!tg) continue;
     const sn = nodeById[p.f]; if (sn && sn._band === tg.key) continue;
     if (pop) pop.pills++;
-    const c = { x: p.x + p.w / 2, y: p.y + p.h / 2 };
-    if (inBoxInterior(c, tg.box)) pillFindings.push({ f: p.f, t: p.t, lbl: p.lbl, pill: p });
+    const b = tg.box;
+    const tooClose = (p.x - PILL_CLEARANCE) < b.x + b.w && (p.x + p.w + PILL_CLEARANCE) > b.x
+                  && (p.y - PILL_CLEARANCE) < b.y + b.h && (p.y + p.h + PILL_CLEARANCE) > b.y;
+    if (tooClose) pillFindings.push({ f: p.f, t: p.t, lbl: p.lbl, pill: p, clr: PILL_CLEARANCE });
   }
   return { edgeFindings, pillFindings };
 }

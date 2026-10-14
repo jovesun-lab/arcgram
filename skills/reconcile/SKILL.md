@@ -3,7 +3,7 @@ name: reconcile
 description: >-
   Check that an Arcgram diagram's @spec values still match the code that implements it.
   Reads each node's desc "@spec key=value" line, finds the same-named code constant
-  (hold_ms <-> HOLD_MS / holdMs), diffs the literals. Typed findings: drift, missing
+  (hold_ms matches HOLD_MS or holdMs), diffs the literals. Typed findings: drift, missing
   constant, non-literal, ambiguous. Reads only the @spec line + named constants, never
   geometry; marks, never blocks. Run after editing a diagram or its code. Agent-neutral.
   Sibling to Checkpoint (Checkpoint = structure; Reconcile = values).

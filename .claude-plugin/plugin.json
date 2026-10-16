@@ -1,6 +1,6 @@
 {
   "name": "arcgram",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Make AI agent reasoning visible and auditable as an interactive graph. Arcgram turns walls of prose into typed nodes and explicit edges you inspect and correct node by node. Use it as a visual agent harness: propose → draw → self-audit → fix, human in the loop. Outputs one standalone HTML file: no build step, no npm, no CDN, no runtime. Ships authoring plus Checkpoint (diagram structure), Reconcile (diagram vs code), and Validate self-checks. Framework-agnostic and agent-neutral.",
   "author": {
     "name": "jovesun-lab",

@@ -4,23 +4,11 @@ Arcgram uses **manual positioning** — no auto-layout. This is a feature: it gi
 
 ---
 
-## 0. Canvas size & edge margin
+## 0. Canvas size
 
-`W` and `H` live at the top of the engine block. Treat them as a **starting hint**, not a hard ceiling — the engine derives the real canvas size from your band stack + content extent and grows beyond the author hint when needed. Your authored H is a floor.
+There is no canvas size to set. The drawing area has no edge: give every node an `x` and `y` and place it where the layout needs it. When the page opens, the view fits the whole drawing into the window; press `0` or the **fit** button to fit it again after you pan or zoom.
 
-Reasonable starting hints by reading direction and band count:
-
-| Reading direction | Starting hint `W` × `H` |
-|---|---|
-| Horizontal (L → R primary), ≤4 bands | `1600 × 900` |
-| Horizontal (L → R primary), 5–6 bands | `1600 × 1200` |
-| Vertical (T → B primary) | `900 × 1600` |
-
-If your hint turns out too small, the engine quietly grows it during `autoExtendCanvas`. The viewport then scales to fit. Nothing breaks — but `fitView` will start at a smaller zoom, which can read as "the diagram looks squashed." Picking a generous hint up front gives a cleaner first paint.
-
-**Edge margin: 50 px recommended, 30 px minimum.** No node's bounding box should sit inside the 50 px ring around the canvas edge. Keeps text clear of the visible boundary and gives tooltips room to render without clipping.
-
-**Doesn't fit? Extend, don't compress.** If your layout needs more room, bump `W` or `H`. Don't tighten the Y-step, don't reroute through awkward lanes, don't shrink the node grid. The diagram should breathe — extra canvas is free, and the viewport scales to fit.
+**Short of room? Spread out, don't compress.** If the layout feels cramped, move nodes further apart. Don't tighten the Y-step, don't reroute through awkward lanes, don't shrink the node grid. The diagram should breathe — room is free, and a bigger drawing simply opens at a smaller zoom.
 
 ---
 
@@ -51,17 +39,16 @@ Example column schemes:
 
 Each column gets one X coordinate (the left edge of all nodes in that column). All nodes in column A share `x: <X_A>`.
 
-**Spacing rule:** column-to-column X gap ≈ 50 px. Since node floor width is 176 (grows toward 240 for long labels via 4-phase staircase), that's `next_column_x ≈ prev_x + 220`. Widen the gap if labels are long enough to push nodes into Phase 2+ growth.
+**Spacing rule:** start columns about 300 px apart — `next_column_x ≈ prev_x + 300` (176 node floor width plus room for the wires between). The engine adds more room between columns when the wires need it; widen the gap yourself if labels are long enough to push nodes into Phase 2+ growth.
 
 ---
 
 ## 3. Vertical spacing within a column
 
-Use a **constant Y-step** within each column. Mixing step sizes makes the diagram look chaotic.
+Use a **constant Y-step** within each column. Mixing step sizes makes the diagram look chaotic. Nodes are 48 px tall at their smallest, and the engine keeps at least 50 px between stacked nodes — a smaller step gets pushed apart.
 
-- Tight: `y-step = 75` (44 node + 31 gap) — for stacks of 5+ nodes
-- Comfortable: `y-step = 80` (44 node + 36 gap) — default
-- Airy: `y-step = 95` — for short lists where breathing room helps
+- Default: `y-step = 100` (48 node + 52 gap)
+- Airy: `y-step = 140` — for short lists, or when labels wrap to two lines
 
 Snap every node in a column to `y = baseY + n * y-step`. Avoid one-off offsets — they read as misalignment, not emphasis.
 
@@ -230,7 +217,7 @@ The trap: any wire entering a node's `top` drops vertically at that node's cente
 
 **3. One column per branch-bearing spine node.** If two spine nodes stack in the same column, their two branches are forced into the same column → collision (rule 1 again). Give every spine node that has a branch below it its own X.
 
-**4. Don't put a wide pill on a short branch wire.** A long edge label on a short vertical jams the target node — the arrival needs `arrow (9) + handle (10) = 19 px` of clearance before the pill (conformance C3). Put the relationship in the branch node's own `label`; leave the connector unlabeled — or lengthen the wire.
+**4. Don't put a wide pill on a short branch wire.** A long edge label on a short vertical jams the target node — the arrival needs room for the arrowhead and a short straight stretch before the pill. Put the relationship in the branch node's own `label`; leave the connector unlabeled — or lengthen the wire.
 
 > **Engine-compile candidate.** Rule 1 (anchor-by-role) is a deterministic function of each edge's role, so it's a candidate to bake into the engine as an *opt-in* auto-anchor (assign `fromPt`/`toPt` only when the author omits them, so it never overrides hand-authored anchors). That would give agents collision-free H-routing without hand-tuning — the kind of learned rule that, once compiled in, every agent inherits. Building it is its own focused change (verify against a known-good reference diagram first, since it touches anchor assignment).
 
@@ -240,8 +227,8 @@ The trap: any wire entering a node's `top` drops vertically at that node's cente
 
 | Mistake | Fix |
 |---|---|
-| Nodes overlap visually | Re-check Y-steps; nodes are 44 tall, leave at least 30 px gap. |
-| Nodes hugging the canvas edge | Bump `W` or `H`; keep every node ≥ 50 px clear of every edge (§0). |
+| Nodes overlap visually | Re-check Y-steps (§3); nodes are 48 px tall at their smallest and grow with long labels. |
+| Nodes squeezed together to save room | There is no canvas edge to fit inside — spread them out (§0). |
 | Edges overlap each other | Use `offset`, or pick different `fromPt` / `toPt` anchors. |
 | Edges pass through nodes | Switch router (`vhv` → `3leg`), or move nodes. |
 | Diagram feels lopsided | Add a band or column header to anchor the empty side. |

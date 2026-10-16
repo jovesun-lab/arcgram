@@ -78,7 +78,7 @@ Group nodes by category, decide reading direction, mark the critical connections
 Pin the shape before drawing (§ Choose the layout first). The engine sizes nodes from their labels — you don't set `w`/`h` except on diamonds. Plan spacing per `schema.md § Sizing rules of thumb` + `layout-tips.md §3`.
 
 ### 4. Fill the DATA SECTION
-Scaffold a copy into `output/` — `node new-flow.mjs my-flow` → `output/my-flow.html` — (or copy `template-v2.html` by hand). Then in the `DATA SECTION` set `<title>`, the title lines, `W`/`H`, and fill `nodes[]`, `edges[]`, and optionally `BANDS[]`, `COLUMNS{}` / `HCOLUMNS[]`, `CANVASES[]`, `STATUS_LEGEND{}`. Minimal shape (full fields: `schema.md § Node` / `§ Edge`):
+Scaffold a copy into `output/` — `node new-flow.mjs my-flow` → `output/my-flow.html` — (or copy `template-v2.html` by hand). Then in the `DATA SECTION` set `<title>`, the title lines, and fill `nodes[]`, `edges[]`, and optionally `BANDS[]`, `COLUMNS{}` / `HCOLUMNS[]`, `CANVASES[]`, `STATUS_LEGEND{}`. Minimal shape (full fields: `schema.md § Node` / `§ Edge`):
 
 ```js
 // node — required: id, label, cat, type, desc, x, y

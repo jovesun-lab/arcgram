@@ -9,10 +9,6 @@ Every Arcgram diagram is defined by four JavaScript arrays/objects inside the di
 - `BANDS[]` — optional horizontal background bands (for grouping rows)
 - `COLUMNS{}` — optional vertical scaffolding (dividers + column headers)
 
-Plus two scalars:
-
-- `W`, `H` — world canvas dimensions in pixels (logical coordinate space, not screen pixels)
-
 Colors and other visual values come from **CSS custom properties** ("design tokens") defined in `themes/default.css` — see the Design Tokens section below. There's no `COL{}` JS object anymore; the engine reads tokens via `getComputedStyle()` and exposes them through an internal `COL` map and `THEME` object.
 
 ---
@@ -332,7 +328,7 @@ The tag is drawn above the column, centered on its members. There are **no divid
 
 When a column **omits `fill`/`color`**, the engine derives the tag palette from the **dominant member type** — the most common `n.type` among that column's members (tie-break: first type in authored member order). The tag then takes that type's `--node-<type>-bg` as `fill` and `--node-<type>-border` as `color`, so the label reads in the same color family as the nodes it sits over instead of asserting an unrelated identity hue.
 
-Author-set values still win: `fill`/`color` only fill the gaps (`col.fill ?? domBg`, `col.color ?? domBorder`), so any column that specifies them — and every existing diagram — is unchanged. Set both to a neutral pair if you want a deliberately quiet, type-agnostic header. The derivation is color-only (no geometry impact); the dominant type is also stamped on `col._domType`.
+Author-set values still win: `fill`/`color` only fill the gaps (`col.fill ?? domBg`, `col.color ?? domBorder`), so any column that specifies them — and every existing diagram — is unchanged. Set both to a neutral pair if you want a deliberately quiet, type-agnostic header. The derivation is color-only (no geometry impact).
 
 ---
 
@@ -418,11 +414,11 @@ const edges = [
 ## World coordinates vs screen coordinates
 
 - **World** is the diagram's logical coordinate space. Node positions, band ranges, column dividers — all in world coordinates.
-- **Screen** is the actual browser pixels. The viewport (`vp.x`, `vp.y`, `vp.scale`) maps world → screen.
+- **Screen** is the actual browser pixels. Panning and zooming change how world maps to screen.
 
 You only ever write world coordinates. The renderer handles the mapping.
 
-`W` and `H` should be the bounding box of your content. `fitView()` scales the whole world to fit the browser at startup.
+There is no canvas size to set: when the page opens, the view fits the whole drawing into the window (press `0` or **fit** to fit it again).
 
 ---
 
@@ -430,7 +426,7 @@ You only ever write world coordinates. The renderer handles the mapping.
 
 - Node size: **floor 176 × 48 → cap 240 × 128**. Engine 4-phase staircase grows node W then H as labels lengthen; you don't set `w`/`h` per node. For multi-line labels, plan ~100 px Y-step.
 - Row spacing in a column: **Y-step ≈ 100 px** (allows for grown nodes at floor + clearance).
-- Column spacing: **`next_column_x ≈ previous_column_x + 220`** (176 floor + ~44 gap; widen if labels grow toward 240).
+- Column spacing: **`next_column_x ≈ previous_column_x + 300`** (176 floor + room for the wires between; the engine adds more where the wires need it; widen if labels grow toward 240).
 - World canvas size: author values are hints — engine auto-extends if any node overflows. Reasonable starting `W = max(node.x + 200) + 40`, `H = max(node.y + 60) + 56`.
 - Band height: engine auto-fits content + adds topLane/botLane for any wires routing through. Authored `h` is a starting hint; engine takes `max(authoredH, computedH)`.
 
@@ -597,4 +593,4 @@ The W&B theme has one targeted exception — it applies `[data-theme="wb"]` over
 | Custom node types (per project) | Inline `<style>` in the diagram HTML |
 | Structural rules consuming these tokens | `themes/base.css` |
 
-The runtime semantic-token transformations (B&W desaturation, W&B inversion) are computed in JS via the engine's `refreshTheme()` and `desaturate()` functions in `template-v2.html` — read those functions for the exact math.
+The runtime semantic-token transformations (B&W desaturation, W&B inversion) are computed in JS inside `template-v2.html` (see `desaturate()`) — read it for the exact math.

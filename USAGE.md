@@ -6,6 +6,32 @@ The output is always the same: a single self-contained HTML file with your diagr
 
 ---
 
+## Draw it right in the chat — nothing to install
+
+If your chat app has an inline visual tool, an agent can show an Arcgram diagram inside the conversation, without a file. The widget
+carries only the diagram's data and a few lines that load the engine from this repo through the public jsDelivr CDN — about 2 KB per
+diagram instead of the ~300 KB engine:
+
+```html
+<iframe id="ag" style="width:100%;height:560px;border:0"></iframe>
+<script>
+const ENGINE = 'https://cdn.jsdelivr.net/gh/jovesun-lab/arcgram@v2.1.1/template-v2.html';
+const NODES = "const nodes = [\n{id:'A',x:382,y:40,label:'Idea',type:'input'},\n{id:'B',x:382,y:180,label:'Agent drafts',type:'tool'},\n{id:'C',x:382,y:320,label:'Self-check',type:'code'},\n{id:'D',x:382,y:460,label:'Diagram',type:'output'}\n];";
+const EDGES = "const edges = [\n{f:'A',t:'B',fromPt:'bot',toPt:'top'},\n{f:'B',t:'C',fromPt:'bot',toPt:'top'},\n{f:'C',t:'D',fromPt:'bot',toPt:'top'}\n];";
+fetch(ENGINE).then(r => r.text()).then(t => {
+  document.getElementById('ag').srcdoc =
+    t.replace('const nodes = [\n];', NODES).replace('const edges = [\n];', EDGES);
+});
+</script>
+```
+
+- Pin a release tag (`@v2.1.1`) so a diagram keeps drawing the same way.
+- Give every node an `x` and `y` — in v2.1.1 a flow with no positions draws an empty canvas.
+- Tested in the Claude Code desktop app (2026-10-15). Not yet tested: Cowork, claude.ai, Claude Desktop chat.
+- Pasting raw `<svg>` into a reply shows code, not a picture, in the Claude Code desktop app — use the inline tool or the HTML file.
+
+---
+
 ## Claude Code (CLI)
 
 Native skill support — agent auto-discovers and triggers.

@@ -25,6 +25,10 @@ fetch(ENGINE).then(r => r.text()).then(t => {
 </script>
 ```
 
+This is the example above, run unchanged in the Claude Code desktop app — a live diagram (hover, drag, zoom, themes), not a picture:
+
+![The example diagram drawn inside a Claude Code chat](assets/inline-claude-code.png)
+
 - Pin a release tag (`@v2.1.1`) so a diagram keeps drawing the same way.
 - Give every node an `x` and `y` — in v2.1.1 a flow with no positions draws an empty canvas.
 - Tested in the Claude Code desktop app (2026-10-15). Not yet tested: Cowork, claude.ai, Claude Desktop chat.
